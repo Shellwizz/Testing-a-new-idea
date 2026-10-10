@@ -6,10 +6,13 @@
 // ─────────────────────────────────────────────────────────────
 export default {
   // Your business / brand name as customers should see it.
-  businessName: "PointPro POS Services",
+  businessName: "BizPoint Hub",
 
   // You, the person customers will deal with, and your role at Moniepoint.
   ownerName: "Your Name",
+  // Optional: a real photo of you makes the site far more trustworthy.
+  // Put the file in the assets folder and write its name here, e.g. "me.jpg".
+  photo: "",
   ownerRole: "Moniepoint Business Relationship Manager (BRM)",
 
   // The live web address you will deploy to (no trailing slash).
@@ -17,9 +20,9 @@ export default {
   siteUrl: "https://www.example.com",
 
   // Phone number in international format, digits only after the +.
-  phone: "+2348000000000",
+  phone: "+2349060349028",
   // WhatsApp number, digits only, with country code (no +).
-  whatsapp: "2348000000000",
+  whatsapp: "2349060349028",
   email: "hello@example.com",
 
   // Where you are based.
@@ -35,7 +38,7 @@ export default {
   nationwide: true,
 
   // Opening hours (shown on site + in Google structured data).
-  hours: "Mon–Sat, 8:00am – 7:00pm",
+  hours: "Monday to Saturday, 8am to 7pm",
   openingHoursSpec: [
     { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "08:00", closes: "19:00" },
   ],

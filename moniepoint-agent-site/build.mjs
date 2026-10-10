@@ -1,4 +1,4 @@
-// Static site generator — no dependencies. Run:  node build.mjs
+// Static site generator, no dependencies. Run:  node build.mjs
 // Output goes to ./dist (upload that folder to any static host).
 import { mkdir, writeFile, copyFile, rm } from "node:fs/promises";
 import { dirname, join } from "node:path";
@@ -28,36 +28,36 @@ const waLink = (text) => `https://wa.me/${config.whatsapp}?text=${encodeURICompo
 // ───────────── Location pages (generated from states list) ─────────────
 const stateSlug = (s) => `moniepoint-pos-in-${s.slug || slugify(s.name)}`;
 const intros = [
-  (s) => `Need a Moniepoint POS in ${s.name}? {biz} helps business owners and POS agents in ${s.towns.slice(0, 3).join(", ")} and across ${s.name} get their Moniepoint terminal, open a business account and start earning.`,
-  (s) => `Looking for where to get a Moniepoint (Money Point) POS machine in ${s.name}? Whether you’re in ${s.towns[0]} or ${s.towns[s.towns.length - 1]}, we’ll guide you from registration to your first transaction.`,
-  (s) => `Thinking of starting a POS business in ${s.name}? Moniepoint is one of the most trusted POS networks for agents in ${s.towns.slice(0, 2).join(" and ")}. Here’s how {biz} gets you set up quickly.`,
+  (s) => `Need a Moniepoint POS in ${s.name}? I’m {owner}, a Business Relationship Manager at Moniepoint. I help shop owners and POS agents in ${s.towns.slice(0, 3).join(", ")} and across ${s.name} get their terminal, open a business account and start earning.`,
+  (s) => `Looking for where to get a Moniepoint (Money Point) POS machine in ${s.name}? Whether you’re in ${s.towns[0]} or ${s.towns[s.towns.length - 1]}, I’ll take you from registration to your first transaction. I’m a Business Relationship Manager at Moniepoint.`,
+  (s) => `Thinking of starting a POS business in ${s.name}? Moniepoint is one of the most trusted POS networks for agents in ${s.towns.slice(0, 2).join(" and ")}. As a Moniepoint BRM, I can get you set up quickly.`,
 ];
 const locationPages = states.map((s, i) => ({
   slug: stateSlug(s),
   isLocation: true,
   stateName: s.name,
-  title: `Moniepoint POS in ${s.name} – Get Yours Fast | {biz}`,
-  description: `Get a Moniepoint POS machine in ${s.name} (${s.towns.slice(0, 4).join(", ")}). Price, requirements, account opening and loan guidance. Chat with {biz} on WhatsApp.`,
+  title: `Moniepoint POS in ${s.name}: Get Yours Fast | {biz}`,
+  description: `Get a Moniepoint POS machine in ${s.name} (${s.towns.slice(0, 4).join(", ")}). Price, requirements, account opening and loan guidance. Talk to a Moniepoint BRM on WhatsApp.`,
   h1: `Moniepoint POS in ${s.name}`,
   lead: intros[i % intros.length](s),
   sections: [
     {
-      h: `Areas we help in ${s.name}`,
-      body: `<ul class="towns">${s.towns.map((t) => `<li>Moniepoint POS ${esc(t)}</li>`).join("")}</ul><p>Don’t see your town? We still help — just send your location on WhatsApp.</p>`,
+      h: `Areas I cover in ${s.name}`,
+      body: `<ul class="towns">${s.towns.map((t) => `<li>Moniepoint POS ${esc(t)}</li>`).join("")}</ul><p>Don’t see your town? I can still help. Just send your location on WhatsApp.</p>`,
     },
     {
       h: `How to get a Moniepoint POS in ${s.name}`,
-      body: `<ol class="steps"><li>Message {biz} with your town in ${s.name}.</li><li>Get your documents ready — <a href="/moniepoint-pos-requirements/">see requirements</a>.</li><li>We help you open your Moniepoint business account and request your terminal.</li><li>Receive, activate and start earning.</li></ol>`,
+      body: `<ol class="steps"><li>Message me with your town in ${s.name}.</li><li>Get your documents ready. <a href="/moniepoint-pos-requirements/">See the requirements</a>.</li><li>I help you open your Moniepoint business account and request your terminal.</li><li>Receive, activate and start earning.</li></ol>`,
     },
     {
       h: `Starting a POS business in ${s.name}`,
-      body: `<p>Busy markets, motor parks, campuses and estates in ${s.towns.slice(0, 3).join(", ")} have steady demand for cash withdrawals and transfers. Read our <a href="/start-pos-business-nigeria/">POS business guide</a> and <a href="/pos-business-profit/">profit calculator</a> before you start.</p>`,
+      body: `<p>Busy markets, motor parks, campuses and estates in ${s.towns.slice(0, 3).join(", ")} have steady demand for cash withdrawals and transfers. Read my <a href="/start-pos-business-nigeria/">POS business guide</a> and <a href="/pos-business-profit/">profit guide</a> before you start.</p>`,
     },
   ],
   faqs: [
-    { q: `How much is Moniepoint POS in ${s.name}?`, a: `Prices depend on terminal type and current offers. Message {biz} with your town in ${s.name} for today’s price.` },
-    { q: `Where can I get Moniepoint POS in ${s.towns[0]}?`, a: `Chat with {biz} on WhatsApp — we’ll guide you to get your Moniepoint POS in ${s.towns[0]} quickly.` },
-    { q: `Can I get a Moniepoint loan in ${s.name}?`, a: `Moniepoint loans are offered to eligible active users in the app, wherever you are in Nigeria. See our Moniepoint loan guide.` },
+    { q: `How much is Moniepoint POS in ${s.name}?`, a: `Prices depend on terminal type and current offers. Message me with your town in ${s.name} for today’s price.` },
+    { q: `Where can I get Moniepoint POS in ${s.towns[0]}?`, a: `Send me a message on WhatsApp and I’ll guide you to get your Moniepoint POS in ${s.towns[0]} quickly.` },
+    { q: `Can I get a Moniepoint loan in ${s.name}?`, a: `Moniepoint loans are offered to eligible active users in the app, wherever you are in Nigeria. See my Moniepoint loan guide.` },
   ],
   related: ["moniepoint-pos-price", "how-to-get-moniepoint-pos", "moniepoint-loan", "money-point-pos"],
 }));
@@ -72,7 +72,7 @@ const stateLinks = `<ul class="state-grid">${allPages
   .join("")}</ul>`;
 
 const contactBlock = () => `<div class="contact-card">
-<p><a class="btn btn-wa" href="${waLink("Hello, I want a Moniepoint POS.")}" rel="nofollow">${icon.chat} Chat on WhatsApp</a>
+<p><a class="btn btn-wa" href="${waLink("Hello, I want to get started with Moniepoint.")}" rel="nofollow">${icon.chat} Chat on WhatsApp</a>
 <a class="btn btn-ghost" href="tel:${esc(config.phone)}">${icon.phone} Call ${esc(config.phone)}</a></p>
 <p><strong>Email:</strong> <a href="mailto:${esc(config.email)}">${esc(config.email)}</a><br>
 <strong>Address:</strong> ${esc(config.address.street)}, ${esc(config.address.city)}, ${esc(config.address.state)}<br>
@@ -142,8 +142,8 @@ const icon = {
 const trustItems = [
   ["Direct onboarding", "Handled by a Moniepoint BRM"],
   ["Nationwide", "All 36 states + FCT"],
-  ["Real support", "WhatsApp replies, no wahala"],
-  ["Safe & honest", "We never ask for PIN or OTP"],
+  ["Quick replies", "Call or WhatsApp me directly"],
+  ["Safe and honest", "I never ask for your PIN or OTP"],
 ];
 const terminalArt = `<svg viewBox="0 0 320 340" class="terminal">
   <defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe7fb"/></linearGradient></defs>
@@ -175,8 +175,20 @@ const leadForm = `<section class="lead-form" id="enquire">
   </form>
 </section>
 <script>document.querySelectorAll(".lead-form form").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();var d=new FormData(f);var msg="Hello ${esc(config.ownerName)}, my name is "+d.get("name")+" from "+d.get("town")+". I'm interested in: "+d.get("need")+" (Moniepoint). Page: "+document.title;window.location.href="https://wa.me/"+f.dataset.wa+"?text="+encodeURIComponent(msg);});});</script>`;
+const avatar = config.photo
+  ? `<img class="avatar" src="/assets/${esc(config.photo)}" alt="${esc(config.ownerName)}" width="96" height="96">`
+  : `<span class="avatar avatar-initials" aria-hidden="true">${esc(config.ownerName.split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase())}</span>`;
+const aboutBlock = `<section class="about">
+  ${avatar}
+  <div>
+    <p class="about-role">Business Relationship Manager, Moniepoint</p>
+    <h2>Hi, I’m ${esc(config.ownerName)}</h2>
+    <p>I work with Moniepoint as a Business Relationship Manager. My job is to get businesses set up properly and to be the person they call when they need something. I work with shop owners, POS agents and traders across ${esc(config.address.state)} and beyond.</p>
+    <p>Call or WhatsApp me on <a href="tel:${esc(config.phone)}">${esc(config.phone)}</a>.</p>
+  </div>
+</section>`;
 const reviewsBlock = (config.reviews || []).length
-  ? `<section class="reviews"><h2>What our customers say</h2><div class="review-grid">${config.reviews
+  ? `<section class="reviews"><h2>What my customers say</h2><div class="review-grid">${config.reviews
       .map((r) => `<figure class="review"><blockquote>“${esc(r.text)}”</blockquote><figcaption>${esc(r.name)}${r.place ? `, ${esc(r.place)}` : ""}</figcaption></figure>`)
       .join("")}</div></section>`
   : "";
@@ -185,7 +197,7 @@ function render(page) {
   const title = fill(page.title);
   const desc = fill(page.description);
   const canonical = url(page.slug);
-  const waText = `Hello ${config.businessName}, I saw "${stripTags(fill(page.h1))}" on your website. I need help.`;
+  const waText = `Hello ${config.ownerName}, I saw "${stripTags(fill(page.h1))}" on your website and I need help.`;
   const body = page.sections
     .map((s) => `<section><h2>${fill(s.h)}</h2>${fill(s.body).replace("{{STATE_LINKS}}", stateLinks).replace("{{CONTACT_BLOCK}}", contactBlock())}</section>`)
     .join("\n");
@@ -208,7 +220,7 @@ function render(page) {
   <div class="wrap hero-grid">
     <div class="hero-copy">
       ${page.slug && page.slug !== "404" ? `<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>${stripTags(fill(page.h1))}</span></nav>` : ""}
-      <p class="eyebrow">${page.isLocation ? `Serving ${esc(page.stateName)} · ` : ""}With ${esc(config.ownerName)}, Moniepoint BRM</p>
+      <p class="eyebrow">${page.isLocation ? `Serving ${esc(page.stateName)} · ` : ""}${esc(config.ownerName)} · Business Relationship Manager, Moniepoint</p>
       <h1>${fill(page.h1)}</h1>
       <p class="lead">${fill(page.lead)}</p>
       <div class="cta-row">
@@ -256,6 +268,7 @@ ${schema(page)}
 ${hero}
 <main class="wrap">
   <article class="content">
+    ${isHome || page.slug === "contact" ? aboutBlock : ""}
     ${body}
     ${reviewsBlock}
     ${page.slug === "404" ? "" : leadForm}
@@ -264,7 +277,7 @@ ${hero}
   <section class="cta-box">
     <div>
       <h2>Ready to get your Moniepoint POS?</h2>
-      <p>Message ${esc(config.businessName)} now. We reply fast, ${esc(config.hours)}.</p>
+      <p>Send me a message. I’m available ${esc(config.hours)}.</p>
     </div>
     <a class="btn btn-wa" href="${waLink(waText)}" rel="nofollow">${icon.chat} Chat on WhatsApp</a>
   </section>
@@ -281,7 +294,7 @@ ${hero}
         .map((p) => `<li><a href="/${p.slug}/">Moniepoint POS ${esc(p.stateName)}</a></li>`)
         .join("")}<li><a href="/moniepoint-near-me/">All states →</a></li></ul></div>
     </div>
-    <p class="disclaimer"><strong>About this site:</strong> ${esc(config.businessName)} is the personal website of ${esc(config.ownerName)}, a ${esc(config.ownerRole)}. It is not Moniepoint’s official website or customer care channel. “Moniepoint” and “Moniebook” are trademarks of Moniepoint Inc. For account issues, use the official Moniepoint app. We will never ask for your PIN, OTP or password.</p>
+    <p class="disclaimer"><strong>About this site:</strong> ${esc(config.businessName)} is the personal website of ${esc(config.ownerName)}, a ${esc(config.ownerRole)}. It is not Moniepoint’s official website or customer care channel. “Moniepoint” and “Moniebook” are trademarks of Moniepoint Inc. For account issues, use the official Moniepoint app. I will never ask for your PIN, OTP or password.</p>
     <p class="copy">© ${new Date().getFullYear()} ${esc(config.businessName)}</p>
   </div>
 </footer>
@@ -295,6 +308,7 @@ await rm(out, { recursive: true, force: true });
 await mkdir(join(out, "assets"), { recursive: true });
 await copyFile(join(root, "assets/style.css"), join(out, "assets/style.css"));
 await writeFile(join(out, "assets/favicon.svg"), logoSvg(64));
+if (config.photo) await copyFile(join(root, "assets", config.photo), join(out, "assets", config.photo));
 
 for (const page of allPages) {
   const dir = join(out, page.slug);
@@ -319,5 +333,5 @@ await writeFile(join(out, "sitemap.xml"), sitemap);
 await writeFile(join(out, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${config.siteUrl}/sitemap.xml\n`);
 
 console.log(`Built ${allPages.length} pages → ${out}`);
-if (config.siteUrl.includes("example.com")) console.warn("⚠  siteUrl is still example.com — update site.config.mjs before deploying.");
-if (config.phone.includes("8000000000")) console.warn("⚠  phone/WhatsApp are placeholders — update site.config.mjs.");
+if (config.siteUrl.includes("example.com")) console.warn("⚠  siteUrl is still example.com. Update site.config.mjs before deploying.");
+if (config.phone.includes("8000000000")) console.warn("⚠  phone/WhatsApp are placeholders. Update site.config.mjs.");

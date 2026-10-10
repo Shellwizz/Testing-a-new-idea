@@ -2,62 +2,62 @@
 // actually type ("moniepoint pos price", "money point loan", ...).
 //
 // Placeholders replaced at build time:
-//   {biz}  business name      {phone}  phone number
+//   {biz}  site name          {phone}  phone number
 //   {city} your city          {state}  your state
-//   {owner} your name          {role}   your Moniepoint role
+//   {owner} your name         {role}   your Moniepoint role
 //
-// Keep facts general and honest. Don't publish exact fees or loan rates
-// unless you have confirmed them — wrong numbers lose customers' trust and
-// Google's.
+// Writing style: first person ("I"), short sentences, no dashes, no emoji.
+// Don't publish exact fees or loan rates unless you have confirmed them.
 
 export const pages = [
   // ───────────────────────────── HOME ─────────────────────────────
   {
     slug: "",
-    title: "Moniepoint POS Agent – Get Your Moniepoint POS Fast | {biz}",
+    title: "Moniepoint POS, Business Account and Loans | {owner}, Moniepoint BRM",
     description:
-      "Get a Moniepoint POS machine, open a Moniepoint business account, and get help with Moniepoint loans and Moniebook. Fast setup and delivery across Nigeria. Chat on WhatsApp.",
-    h1: "Get Your Moniepoint POS Machine — Fast, Simple, Delivered",
+      "Get your Moniepoint POS, open a Moniepoint business account and get help with loans and Moniebook. Talk directly to {owner}, a Business Relationship Manager at Moniepoint.",
+    h1: "Get your Moniepoint POS through a Moniepoint BRM",
     lead:
-      "Whether you typed “Moniepoint POS”, “Money Point POS”, “Monie Point” or “Moniepoint agent near me” — you’re in the right place. {biz} helps you get a Moniepoint POS terminal, set up your business account and start earning, without stress.",
+      "I’m {owner}, a Business Relationship Manager at Moniepoint. I help shop owners, POS agents and growing businesses get set up on Moniepoint and stay set up. If you searched “Moniepoint POS”, “Money Point POS” or “Moniepoint near me”, you can talk to me directly.",
     sections: [
       {
-        h: "What we do for you",
+        h: "What I can help you with",
         body: `<ul class="ticks">
-<li><strong>Get a Moniepoint POS terminal</strong> — onboarding directly with a Moniepoint BRM, from request to activation.</li>
-<li><strong>Open your Moniepoint business account</strong> — we help you get your documents right the first time.</li>
-<li><strong>Start a POS business</strong> — location tips, cash management, pricing your services.</li>
-<li><strong>Moniepoint loan guidance</strong> — how to build the transaction history that qualifies you.</li>
-<li><strong>Moniebook setup</strong> — track sales, stock and debts in one app.</li>
-<li><strong>After-sales support</strong> — we don’t disappear after you get your terminal.</li>
+<li><strong>POS terminal.</strong> I take you from request to activation.</li>
+<li><strong>Business account.</strong> I make sure your documents are right the first time.</li>
+<li><strong>Starting a POS business.</strong> Location, cash flow and how to price your service.</li>
+<li><strong>Loans.</strong> How Moniepoint credit works and what helps you qualify.</li>
+<li><strong>Moniebook.</strong> Track your sales, stock and who owes you.</li>
+<li><strong>After you start.</strong> I stay your contact when you need help.</li>
 </ul>`,
       },
       {
-        h: "Why people choose Moniepoint POS",
-        body: `<p>Moniepoint is one of the most widely used POS networks in Nigeria. Agents and shop owners pick it for <strong>fast settlement</strong>, <strong>reliable transaction success rates</strong>, a strong business banking app, and access to <strong>business loans</strong> for active users. Moniepoint Microfinance Bank is licensed by the CBN and deposits are insured by the NDIC.</p>`,
+        h: "Why go through a BRM",
+        body: `<p>Anyone can download the app. The difference is having one person who knows your business, answers your calls and follows up when something is stuck. That is my job at Moniepoint.</p>
+<p>Moniepoint Microfinance Bank is licensed by the CBN and deposits are insured by the NDIC.</p>`,
       },
       {
-        h: "How it works with {biz}",
+        h: "How it works",
         body: `<ol class="steps">
-<li><strong>Chat with us</strong> on WhatsApp or call — tell us your location and what you need.</li>
-<li><strong>Send your details</strong> — we tell you exactly what documents are needed.</li>
-<li><strong>Get set up</strong> — account opening, terminal request and activation.</li>
-<li><strong>Start earning</strong> — we show you how to price withdrawals and transfers profitably.</li>
+<li>Send me a message on WhatsApp or call. Tell me where you are and what you need.</li>
+<li>I tell you exactly which documents to get ready.</li>
+<li>We open your account and request your terminal together.</li>
+<li>You start taking payments. I show you how to price withdrawals and transfers.</li>
 </ol>`,
       },
     ],
     faqs: [
       {
         q: "Is it Money Point or Moniepoint?",
-        a: "The correct spelling is Moniepoint. Many people search “Money Point”, “Monie Point” or “Moneypoint” — they all mean the same Moniepoint POS and banking service.",
+        a: "It is Moniepoint. Many people type Money Point, Monie Point or Moneypoint. They all mean the same company and the same POS.",
       },
       {
         q: "Can I get a Moniepoint POS outside Lagos?",
-        a: "Yes. We help customers across Nigeria. Message us with your state and town and we’ll tell you the fastest way to get your terminal.",
+        a: "Yes. Send me your state and town on WhatsApp and I will tell you the fastest way to get your terminal.",
       },
       {
-        q: "Is {biz} Moniepoint?",
-        a: "{biz} is run by {owner}, a {role}. This is {owner}’s own website, not Moniepoint’s official website. {owner} can onboard you to Moniepoint directly. For issues with an existing account, also use Moniepoint’s official app and support channels.",
+        q: "Who runs this website?",
+        a: "I do. I’m {owner}, a {role}. This is my own website, not Moniepoint’s official website. I can onboard you to Moniepoint directly.",
       },
     ],
     related: ["moniepoint-pos-price", "how-to-get-moniepoint-pos", "moniepoint-loan", "moniepoint-pos-charges", "start-pos-business-nigeria", "money-point-pos"],
@@ -66,35 +66,35 @@ export const pages = [
   // ─────────────────────── MISSPELLING CATCHER ───────────────────────
   {
     slug: "money-point-pos",
-    title: "Money Point POS (Moniepoint) – How to Get One Today | {biz}",
+    title: "Money Point POS (Moniepoint): How to Get One Today | {biz}",
     description:
-      "Searching for Money Point POS, Monie Point or Moneypoint? It's Moniepoint. Here's how to get a Money Point POS machine, the price, charges and loans — explained simply.",
-    h1: "Money Point POS — Everything You Need to Know",
+      "Searching for Money Point POS, Monie Point or Moneypoint? It is Moniepoint. Here is how to get the POS, what it costs, the charges and how loans work.",
+    h1: "Money Point POS: how to get one",
     lead:
-      "“Money Point”, “Monie Point”, “Moneypoint”, “Monipoint” — however you spell it, you mean <strong>Moniepoint</strong>, the POS and business banking company used by hundreds of thousands of agents and shops in Nigeria. Here’s how to get your Money Point POS without wahala.",
+      "Money Point, Monie Point, Moneypoint, Monipoint. However you spell it, you mean <strong>Moniepoint</strong>, the POS and business banking company used by agents and shops all over Nigeria. I’m a Business Relationship Manager there, and I can get you set up.",
     sections: [
       {
-        h: "How to get a Money Point POS machine",
+        h: "Getting your Money Point POS",
         body: `<ol class="steps">
-<li>Open a Moniepoint business account (we help you do this correctly).</li>
+<li>Open a Moniepoint business account. I can do this with you.</li>
 <li>Request a POS terminal for your business.</li>
-<li>Get your terminal delivered or picked up, then activated.</li>
-<li>Start accepting card payments, withdrawals and transfers.</li>
+<li>Collect it or have it delivered, then activate it.</li>
+<li>Start taking card payments, withdrawals and transfers.</li>
 </ol>
-<p>Full guide: <a href="/how-to-get-moniepoint-pos/">How to get a Moniepoint POS</a>.</p>`,
+<p>Full steps: <a href="/how-to-get-moniepoint-pos/">How to get a Moniepoint POS</a>.</p>`,
       },
       {
-        h: "Money Point POS price",
-        body: `<p>The cost of a Money Point (Moniepoint) POS depends on the terminal type and current Moniepoint offers. Prices change, so we always give you the <strong>current price</strong> before you pay anything. See <a href="/moniepoint-pos-price/">Moniepoint POS price</a>.</p>`,
+        h: "Price",
+        body: `<p>The price depends on the type of terminal and any offer running at the time. Prices change, so I give you today’s price before you pay anything. More on the <a href="/moniepoint-pos-price/">Moniepoint POS price</a> page.</p>`,
       },
       {
         h: "Money Point loan",
-        body: `<p>Moniepoint offers business loans to eligible, active users through the app. The more consistent your transactions, the better your chances. See <a href="/moniepoint-loan/">Moniepoint loan guide</a>.</p>`,
+        body: `<p>Moniepoint offers business loans to eligible users inside the app. Steady transactions over time help a lot. Read the <a href="/moniepoint-loan/">Moniepoint loan guide</a>.</p>`,
       },
     ],
     faqs: [
-      { q: "Is Money Point the same as Moniepoint?", a: "Yes. “Money Point” is a common way people spell or say Moniepoint. It is the same company and the same POS." },
-      { q: "Where can I buy a Money Point POS near me?", a: "Chat with {biz} on WhatsApp with your location and we will guide you to get one quickly." },
+      { q: "Is Money Point the same as Moniepoint?", a: "Yes. Money Point is just how many people say or spell Moniepoint. Same company, same POS." },
+      { q: "Where can I get a Money Point POS near me?", a: "Message me on WhatsApp with your location and I will guide you." },
     ],
     related: ["moniepoint-pos-price", "moniepoint-loan", "moniepoint-near-me", "moniebook"],
   },
@@ -102,32 +102,32 @@ export const pages = [
   // ─────────────────────────── PRICE ───────────────────────────
   {
     slug: "moniepoint-pos-price",
-    title: "Moniepoint POS Price in Nigeria (Updated) | {biz}",
+    title: "Moniepoint POS Price in Nigeria Today | {biz}",
     description:
-      "How much is a Moniepoint POS machine in Nigeria? Current Moniepoint POS price, what's included, caution fee vs outright purchase, and how to get yours delivered.",
-    h1: "Moniepoint POS Price in Nigeria",
+      "How much is a Moniepoint POS machine in Nigeria? What affects the price, caution fee or outright purchase, and how to get today’s price from a Moniepoint BRM.",
+    h1: "Moniepoint POS price in Nigeria",
     lead:
-      "Want to know how much a Moniepoint POS costs? The price depends on the <strong>type of terminal</strong> (Android smart POS vs. traditional), whether it’s an <strong>outright purchase or a refundable caution fee</strong>, and any <strong>promo running at the time</strong>.",
+      "The price of a Moniepoint POS depends on three things: the <strong>type of terminal</strong>, whether you pay a <strong>caution fee or buy it outright</strong>, and any <strong>promo</strong> running at the time.",
     sections: [
       {
-        h: "What affects the Moniepoint POS price",
+        h: "What changes the price",
         body: `<ul class="ticks">
-<li><strong>Terminal type</strong> — Android POS terminals with printers usually cost more than basic models.</li>
-<li><strong>Payment model</strong> — some terminals come with a caution fee, others are bought outright.</li>
-<li><strong>Location & delivery</strong> — delivery outside major cities can add to the cost.</li>
-<li><strong>Current promos</strong> — Moniepoint sometimes runs offers for new agents.</li>
+<li><strong>Terminal type.</strong> Android terminals with a printer cost more than basic ones.</li>
+<li><strong>How you pay.</strong> Some terminals come with a caution fee, others are bought outright.</li>
+<li><strong>Your location.</strong> Delivery outside the big cities can add a little.</li>
+<li><strong>Promos.</strong> Moniepoint sometimes runs offers for new customers.</li>
 </ul>`,
       },
       {
-        h: "Get today’s exact price",
-        body: `<p>Prices change often, and we would rather give you the <strong>correct price today</strong> than an old number from the internet. Tap the WhatsApp button and send “POS PRICE” with your location — we’ll reply with current options.</p>
-<p class="warn">⚠️ Never pay money to anyone claiming to sell a Moniepoint POS without confirming who they are. Ask for a receipt and confirm activation on your own Moniepoint app.</p>`,
+        h: "Get today’s price",
+        body: `<p>Prices online go out of date quickly. Send me “POS PRICE” and your town on WhatsApp and I will reply with the current options.</p>
+<p class="warn"><strong>Be careful:</strong> don’t pay anyone for a Moniepoint POS until you know who they are. Ask for a receipt and confirm activation on your own Moniepoint app.</p>`,
       },
     ],
     faqs: [
-      { q: "How much is a Moniepoint POS machine?", a: "It depends on the terminal type and current offers. Message {biz} on WhatsApp for today’s price in your area." },
-      { q: "Is the Moniepoint POS free?", a: "Not usually. There is typically a purchase price or caution fee. Occasionally there are promotions — ask us what is available right now." },
-      { q: "Can I pay for a Moniepoint POS in instalments?", a: "Ask us — options vary by location and time." },
+      { q: "How much is a Moniepoint POS machine?", a: "It depends on the terminal and current offers. Message me on WhatsApp for today’s price in your area." },
+      { q: "Is the Moniepoint POS free?", a: "Usually not. There is a purchase price or caution fee. Sometimes there are promos. Ask me what is available now." },
+      { q: "Can I pay in instalments?", a: "Ask me. Options depend on your location and the time." },
     ],
     related: ["how-to-get-moniepoint-pos", "moniepoint-pos-requirements", "moniepoint-pos-charges"],
   },
@@ -135,31 +135,31 @@ export const pages = [
   // ─────────────────────────── HOW TO GET ───────────────────────────
   {
     slug: "how-to-get-moniepoint-pos",
-    title: "How to Get a Moniepoint POS Machine (Step-by-Step) | {biz}",
+    title: "How to Get a Moniepoint POS Machine, Step by Step | {biz}",
     description:
-      "Step-by-step guide to getting a Moniepoint POS in Nigeria: requirements, account opening, terminal request, delivery and activation. Get help on WhatsApp.",
-    h1: "How to Get a Moniepoint POS Machine — Step by Step",
-    lead: "Getting a Moniepoint POS is simple when you know the steps. Here’s the full process — or let {biz} handle it with you.",
+      "How to get a Moniepoint POS in Nigeria: documents, account opening, terminal request, delivery and activation. Get help from a Moniepoint BRM.",
+    h1: "How to get a Moniepoint POS machine",
+    lead: "It is a simple process when you know the steps. Here they are. Or send me a message and we do it together.",
     sections: [
       {
-        h: "Step-by-step",
+        h: "The steps",
         body: `<ol class="steps">
-<li><strong>Prepare your documents</strong> — see <a href="/moniepoint-pos-requirements/">Moniepoint POS requirements</a>.</li>
-<li><strong>Open a Moniepoint business account</strong> — on the app or with help from us.</li>
-<li><strong>Complete verification</strong> — BVN/NIN, selfie, and address details.</li>
-<li><strong>Request your POS terminal</strong> — choose your terminal type.</li>
-<li><strong>Pay and receive your terminal</strong> — delivery or pickup.</li>
-<li><strong>Activate and test</strong> — do a small test transaction before customers arrive.</li>
+<li><strong>Get your documents ready.</strong> See the <a href="/moniepoint-pos-requirements/">requirements list</a>.</li>
+<li><strong>Open a Moniepoint business account</strong> on the app, or with me.</li>
+<li><strong>Verify your identity</strong> with BVN, NIN, a selfie and your address.</li>
+<li><strong>Request your terminal</strong> and choose the type you want.</li>
+<li><strong>Pay and receive it</strong> by delivery or pickup.</li>
+<li><strong>Activate and test</strong> with a small transaction before customers come.</li>
 </ol>`,
       },
       {
-        h: "How long does it take?",
-        body: `<p>When your documents are correct, the process can be quick. Most delays come from <strong>mismatched names</strong> between BVN, NIN and ID, or <strong>unclear photos</strong>. We check these with you before you submit.</p>`,
+        h: "How long it takes",
+        body: `<p>When your documents are right, it moves fast. Most delays come from names spelt differently on BVN, NIN and ID, or from blurry photos. I check these with you before you submit.</p>`,
       },
     ],
     faqs: [
-      { q: "Can I get a Moniepoint POS without a shop?", a: "Many agents start from a small kiosk, stand or umbrella spot. You need a clear business location you can describe for verification." },
-      { q: "Do I need a CAC registration?", a: "Not always to start. A registered business name can help with higher limits and loans later. Ask us what fits your case." },
+      { q: "Can I get a Moniepoint POS without a shop?", a: "Yes. Many agents start from a kiosk, a table or an umbrella spot. You just need a clear location you can describe." },
+      { q: "Do I need CAC registration?", a: "Not always to start. A registered business name can help with higher limits and loans later. Ask me what fits your case." },
     ],
     related: ["moniepoint-pos-requirements", "moniepoint-pos-price", "moniepoint-business-account", "become-moniepoint-agent"],
   },
@@ -167,36 +167,36 @@ export const pages = [
   // ─────────────────────────── REQUIREMENTS ───────────────────────────
   {
     slug: "moniepoint-pos-requirements",
-    title: "Moniepoint POS Requirements – Documents You Need | {biz}",
+    title: "Moniepoint POS Requirements: Documents You Need | {biz}",
     description:
-      "What documents do you need for a Moniepoint POS? BVN, NIN, valid ID, passport photo, address and business location. Full checklist for Moniepoint POS registration.",
-    h1: "Moniepoint POS Requirements (Checklist)",
-    lead: "Have these ready before you apply and your Moniepoint POS registration will go much faster.",
+      "Documents for a Moniepoint POS: BVN, NIN, valid ID, passport photo, address and business location. A simple checklist from a Moniepoint BRM.",
+    h1: "Moniepoint POS requirements",
+    lead: "Have these ready before you apply and your registration will go much faster.",
     sections: [
       {
-        h: "Basic requirements",
+        h: "What you need",
         body: `<ul class="ticks">
-<li>Bank Verification Number (<strong>BVN</strong>)</li>
-<li>National Identification Number (<strong>NIN</strong>)</li>
-<li>A <strong>valid ID</strong> (NIN slip, voter’s card, driver’s licence or international passport)</li>
-<li>A clear <strong>passport photo / selfie</strong></li>
+<li>Your <strong>BVN</strong></li>
+<li>Your <strong>NIN</strong></li>
+<li>A <strong>valid ID</strong>: NIN slip, voter’s card, driver’s licence or international passport</li>
+<li>A clear <strong>passport photo or selfie</strong></li>
 <li>Your <strong>home address</strong> and <strong>business location</strong></li>
-<li>An active <strong>phone number</strong> linked to your BVN</li>
-<li>Optional: <strong>CAC</strong> business registration for higher limits</li>
+<li>The <strong>phone number</strong> linked to your BVN, and it must be active</li>
+<li>Optional: <strong>CAC</strong> registration for higher limits</li>
 </ul>`,
       },
       {
-        h: "Common mistakes that delay approval",
+        h: "Mistakes that slow things down",
         body: `<ul>
-<li>Name spelt differently on BVN and NIN.</li>
-<li>Phone number on BVN no longer active.</li>
-<li>Blurry or dark selfie.</li>
-<li>Vague business address (“beside the junction”) — add landmarks and street names.</li>
+<li>Your name is spelt differently on BVN and NIN.</li>
+<li>The phone number on your BVN is no longer working.</li>
+<li>The selfie is dark or blurry.</li>
+<li>The address just says “beside the junction”. Add the street name and a landmark.</li>
 </ul>`,
       },
     ],
     faqs: [
-      { q: "Can I register for Moniepoint POS without NIN?", a: "Identity verification is required. If you don’t have your NIN yet, get it first — it saves time later." },
+      { q: "Can I register without NIN?", a: "No. Identity checks need it. If you don’t have your NIN yet, get it first. It will save you time." },
     ],
     related: ["how-to-get-moniepoint-pos", "moniepoint-business-account", "moniepoint-pos-price"],
   },
@@ -204,36 +204,36 @@ export const pages = [
   // ─────────────────────────── CHARGES ───────────────────────────
   {
     slug: "moniepoint-pos-charges",
-    title: "Moniepoint POS Charges & How Much to Charge Customers | {biz}",
+    title: "Moniepoint POS Charges and What to Charge Customers | {biz}",
     description:
-      "Understand Moniepoint POS charges on withdrawals and transfers, and how POS agents set their own customer fees to make profit. Simple examples inside.",
-    h1: "Moniepoint POS Charges Explained",
-    lead: "There are two different “charges” people talk about: what <strong>Moniepoint charges you</strong> per transaction, and what <strong>you charge your customers</strong>. Your profit is the gap between them.",
+      "How Moniepoint POS charges work on withdrawals and transfers, and how POS agents set their own fees to make a profit. Simple examples.",
+    h1: "Moniepoint POS charges explained",
+    lead: "People mean two different things by “charges”. There is what <strong>Moniepoint charges you</strong>, and what <strong>you charge your customer</strong>. Your profit is the difference.",
     sections: [
       {
-        h: "1. What Moniepoint charges you",
-        body: `<p>Moniepoint takes a small fee on card transactions (usually a percentage, often with a cap) and on some transfers. Exact rates can change and may depend on your account type — check the current rates in your Moniepoint app, or ask us.</p>`,
+        h: "What Moniepoint charges you",
+        body: `<p>Moniepoint takes a small fee on card transactions, usually a percentage with a cap, and on some transfers. Rates can change and can depend on your account. Check the current rate in your app, or ask me.</p>`,
       },
       {
-        h: "2. What you charge your customers",
-        body: `<p>POS agents set their own service fee, usually as a <strong>flat amount per withdrawal band</strong>. Your price should depend on your area, competition, and how hard it is for you to get cash.</p>
-<div class="example"><strong>Illustrative example (not real rates):</strong><br>
-Customer withdraws ₦10,000. Moniepoint fee to you: ₦X. You charge the customer ₦Y. <strong>Your profit = ₦Y − ₦X.</strong><br>
-Do 60 withdrawals a day and small profits add up fast.</div>`,
+        h: "What you charge your customer",
+        body: `<p>Agents set their own fee, usually a flat amount for each withdrawal range. Base it on your area, how many agents are nearby, and how easy it is for you to get cash.</p>
+<div class="example"><strong>Example only, not real rates:</strong><br>
+A customer withdraws ₦10,000. Moniepoint’s fee to you is ₦X. You charge the customer ₦Y. <strong>Your profit is ₦Y minus ₦X.</strong><br>
+Do 60 withdrawals a day and it adds up.</div>`,
       },
       {
-        h: "Tips to stay profitable",
+        h: "Staying profitable",
         body: `<ul class="ticks">
 <li>Know your cost per transaction before you set prices.</li>
-<li>Display your price list clearly — customers trust agents who are upfront.</li>
-<li>Offer transfers, airtime, data and bill payments to earn more per customer.</li>
-<li>Track every day’s profit in <a href="/moniebook/">Moniebook</a> or a notebook.</li>
+<li>Put your price list where customers can see it.</li>
+<li>Add transfers, airtime, data and bills to earn more per customer.</li>
+<li>Write down each day’s profit, in <a href="/moniebook/">Moniebook</a> or a notebook.</li>
 </ul>`,
       },
     ],
     faqs: [
-      { q: "How much does Moniepoint charge per withdrawal?", a: "It’s a small percentage that can be capped and may change. Check your Moniepoint app for your current rate, or ask {biz}." },
-      { q: "How much should I charge for ₦5,000 POS withdrawal?", a: "It depends on your area. Check what other agents nearby charge and make sure your fee is above your Moniepoint cost." },
+      { q: "How much does Moniepoint charge per withdrawal?", a: "A small percentage with a cap, and it can change. Check your app for your current rate, or ask me." },
+      { q: "How much should I charge for a ₦5,000 withdrawal?", a: "It depends on your area. See what agents near you charge and make sure your fee is above your Moniepoint cost." },
     ],
     related: ["pos-business-profit", "start-pos-business-nigeria", "moniepoint-pos-price"],
   },
@@ -241,40 +241,40 @@ Do 60 withdrawals a day and small profits add up fast.</div>`,
   // ─────────────────────────── LOAN ───────────────────────────
   {
     slug: "moniepoint-loan",
-    title: "Moniepoint Loan – How to Qualify & Apply (Guide) | {biz}",
+    title: "Moniepoint Loan: How to Qualify and Apply | {biz}",
     description:
-      "How to get a Moniepoint loan for your POS or business: eligibility, how to apply in the app, and how to build the transaction history that gets you approved.",
-    h1: "Moniepoint Loan — How to Qualify and Apply",
-    lead: "Moniepoint offers <strong>business loans</strong> to eligible users. Loans are offered and approved by Moniepoint itself in the app — nobody outside Moniepoint can approve a loan for you. What {biz} can do is help you <strong>set up properly and build the record</strong> that improves your chances.",
+      "How Moniepoint business loans work, who qualifies, how to apply in the app, and how to build the transaction history that gets you approved.",
+    h1: "Moniepoint loan: how to qualify and apply",
+    lead: "Moniepoint offers <strong>business loans</strong> to eligible customers. Offers show up inside the app, and Moniepoint decides who qualifies. What I can do is help you set up properly and build the kind of record that improves your chances.",
     sections: [
       {
-        h: "Who qualifies for a Moniepoint loan?",
-        body: `<p>Eligibility is decided by Moniepoint, but it generally favours businesses that:</p>
+        h: "Who usually qualifies",
+        body: `<p>Moniepoint makes the decision, but it generally favours businesses that:</p>
 <ul class="ticks">
-<li>Use their Moniepoint account <strong>actively and consistently</strong>.</li>
-<li>Have <strong>steady transaction volume</strong> over several months.</li>
-<li>Have <strong>completed verification</strong> (BVN, NIN, address).</li>
-<li>Repay previous loans on time.</li>
+<li>Use their Moniepoint account <strong>actively and every day</strong>.</li>
+<li>Have <strong>steady transactions</strong> over a few months.</li>
+<li>Have <strong>finished verification</strong>: BVN, NIN and address.</li>
+<li>Paid back any earlier loan on time.</li>
 </ul>`,
       },
       {
         h: "How to apply",
         body: `<ol class="steps">
 <li>Open your Moniepoint business app.</li>
-<li>Look for the loans/credit section — if you’re eligible, an offer will show.</li>
-<li>Review the amount, interest and repayment terms carefully.</li>
-<li>Accept only if the repayment fits your daily earnings.</li>
+<li>Go to the loans section. If you are eligible, you will see an offer.</li>
+<li>Read the amount, interest and repayment terms carefully.</li>
+<li>Accept only if the daily repayment fits what you earn.</li>
 </ol>`,
       },
       {
-        h: "Beware of loan scams",
-        body: `<p class="warn">⚠️ Moniepoint loans are offered inside the official app. <strong>Anyone asking you to pay a “processing fee” to get a Moniepoint loan approved is a scammer.</strong> {biz} will never ask you for money to approve a loan.</p>`,
+        h: "Watch out for loan scams",
+        body: `<p class="warn"><strong>Important:</strong> Moniepoint loans are offered inside the official app. Anyone asking you to pay a “processing fee” to approve your loan is a scammer. I will never ask you for money to approve a loan.</p>`,
       },
     ],
     faqs: [
-      { q: "How do I get a loan from Moniepoint?", a: "If you are eligible, a loan offer appears in your Moniepoint business app. Consistent transactions over time improve eligibility." },
-      { q: "Why am I not eligible for a Moniepoint loan?", a: "Usually not enough transaction history yet, incomplete verification, or a previous late repayment. Keep transacting consistently." },
-      { q: "Does Moniepoint give loans to POS agents?", a: "Moniepoint offers credit to eligible business users, including many POS agents. Eligibility is decided by Moniepoint." },
+      { q: "How do I get a loan from Moniepoint?", a: "If you qualify, an offer appears in your Moniepoint business app. Steady transactions over time help." },
+      { q: "Why am I not eligible yet?", a: "Usually not enough transaction history, unfinished verification, or a late repayment before. Keep transacting steadily." },
+      { q: "Does Moniepoint give loans to POS agents?", a: "Moniepoint offers credit to eligible business customers, including many POS agents. Moniepoint decides who qualifies." },
     ],
     related: ["moniepoint-business-account", "pos-business-profit", "moniebook"],
   },
@@ -284,16 +284,16 @@ Do 60 withdrawals a day and small profits add up fast.</div>`,
     slug: "become-moniepoint-agent",
     title: "How to Become a Moniepoint Agent in Nigeria | {biz}",
     description:
-      "Become a Moniepoint POS agent: registration steps, requirements, startup capital, and how much agents earn. Start your POS business with help from {biz}.",
-    h1: "How to Become a Moniepoint Agent",
-    lead: "Becoming a Moniepoint agent is one of the most popular small businesses in Nigeria. You provide cash withdrawals, transfers and bill payments to your community — and earn on every transaction.",
+      "Become a Moniepoint POS agent: what you need, the steps, startup capital and what agents earn. Get started with a Moniepoint BRM.",
+    h1: "How to become a Moniepoint agent",
+    lead: "Running a POS stand is one of the most common small businesses in Nigeria. You give people cash, send transfers and pay bills for them, and you earn on every transaction.",
     sections: [
       {
         h: "What you need",
         body: `<ul class="ticks">
-<li>Documents for <a href="/moniepoint-pos-requirements/">Moniepoint registration</a>.</li>
-<li>A busy spot — market, bus stop, school, estate gate.</li>
-<li><strong>Startup capital</strong> for float (cash on hand + money in your account).</li>
+<li>Your documents. See the <a href="/moniepoint-pos-requirements/">requirements</a>.</li>
+<li>A busy spot: a market, bus stop, school, hospital or estate gate.</li>
+<li><strong>Startup cash</strong> for your float, both cash at hand and money in your account.</li>
 <li>A table, umbrella or kiosk, and a price list.</li>
 </ul>`,
       },
@@ -301,14 +301,14 @@ Do 60 withdrawals a day and small profits add up fast.</div>`,
         h: "Steps",
         body: `<ol class="steps">
 <li>Open your Moniepoint business account.</li>
-<li>Get your POS terminal (<a href="/how-to-get-moniepoint-pos/">full guide</a>).</li>
-<li>Choose your location and set your prices.</li>
-<li>Promote your stand — signboard, WhatsApp status, word of mouth.</li>
+<li>Get your POS terminal. See <a href="/how-to-get-moniepoint-pos/">how</a>.</li>
+<li>Choose your spot and set your prices.</li>
+<li>Let people know: a signboard, your WhatsApp status, word of mouth.</li>
 </ol>`,
       },
     ],
     faqs: [
-      { q: "How much do I need to start a Moniepoint POS business?", a: "You need the terminal cost plus float (cash). Many agents start small and grow their float from profit. Read our guide to starting a POS business." },
+      { q: "How much do I need to start?", a: "The terminal cost plus your float. Many agents start small and grow the float from profit. My POS business guide explains it." },
     ],
     related: ["start-pos-business-nigeria", "pos-business-profit", "moniepoint-pos-charges"],
   },
@@ -316,20 +316,20 @@ Do 60 withdrawals a day and small profits add up fast.</div>`,
   // ─────────────────────────── START POS BUSINESS ───────────────────────────
   {
     slug: "start-pos-business-nigeria",
-    title: "How to Start a POS Business in Nigeria (Moniepoint Guide) | {biz}",
+    title: "How to Start a POS Business in Nigeria with Moniepoint | {biz}",
     description:
-      "Complete guide to starting a POS business in Nigeria with Moniepoint: capital, location, pricing, security, and growing daily profit.",
-    h1: "How to Start a POS Business in Nigeria",
-    lead: "A POS business can bring in daily income with low setup costs. Here is a practical guide from people who do this every day.",
+      "A practical guide to starting a POS business in Nigeria with Moniepoint: capital, location, pricing, safety and growing your daily profit.",
+    h1: "How to start a POS business in Nigeria",
+    lead: "A POS business can bring daily income without a big setup cost. This is what I tell the new agents I work with.",
     sections: [
-      { h: "1. Pick the right location", body: `<p>Busy places where people need cash: markets, motor parks, schools, hospitals, estates and areas with few bank ATMs. Watch the area for a few days before you settle.</p>` },
-      { h: "2. Plan your capital", body: `<p>You need: POS terminal cost, float (cash + account balance), a stand or kiosk, signage, and a small buffer. Bigger float = you can serve bigger withdrawals = more profit.</p>` },
-      { h: "3. Set your prices", body: `<p>See <a href="/moniepoint-pos-charges/">Moniepoint POS charges</a> to calculate your cost and set a profitable fee.</p>` },
-      { h: "4. Stay safe", body: `<ul class="ticks"><li>Never keep all your cash in one place.</li><li>Confirm every transfer in your app before giving cash — fake transfer alerts are common.</li><li>Close before it gets too dark in risky areas.</li></ul>` },
-      { h: "5. Grow", body: `<p>Add airtime, data, electricity and TV payments. Keep records in <a href="/moniebook/">Moniebook</a>. Consistent volume can also make you eligible for a <a href="/moniepoint-loan/">Moniepoint loan</a> to expand.</p>` },
+      { h: "1. Pick the right spot", body: `<p>Go where people need cash: markets, motor parks, schools, hospitals, estates, and areas without many ATMs. Watch the place for a few days before you settle.</p>` },
+      { h: "2. Plan your money", body: `<p>You need the terminal, your float (cash and account balance), a stand or kiosk, a signboard, and a little extra. A bigger float lets you serve bigger withdrawals, and that means more profit.</p>` },
+      { h: "3. Set your prices", body: `<p>Use the <a href="/moniepoint-pos-charges/">charges page</a> to work out your cost, then set a fee that leaves you a profit.</p>` },
+      { h: "4. Stay safe", body: `<ul class="ticks"><li>Don’t keep all your cash in one place.</li><li>Check every transfer in your app before you give cash. Fake alerts are common.</li><li>Close before dark if your area is risky.</li></ul>` },
+      { h: "5. Grow", body: `<p>Add airtime, data, electricity and TV payments. Keep records in <a href="/moniebook/">Moniebook</a>. Steady volume can also make you eligible for a <a href="/moniepoint-loan/">Moniepoint loan</a> to expand.</p>` },
     ],
     faqs: [
-      { q: "Is POS business profitable in Nigeria?", a: "It can be, especially in busy areas with good float management. Profit depends on volume, pricing and location." },
+      { q: "Is POS business profitable in Nigeria?", a: "It can be, especially in a busy area with good float. Profit depends on your volume, prices and location." },
     ],
     related: ["pos-business-profit", "become-moniepoint-agent", "moniepoint-pos-charges"],
   },
@@ -339,52 +339,52 @@ Do 60 withdrawals a day and small profits add up fast.</div>`,
     slug: "pos-business-profit",
     title: "How Much Do Moniepoint POS Agents Make Daily? | {biz}",
     description:
-      "How much profit can you make with a Moniepoint POS? Simple daily and monthly profit calculation for POS agents in Nigeria.",
-    h1: "How Much Can You Make With a Moniepoint POS?",
-    lead: "Your earnings depend on three numbers: <strong>how many transactions</strong> you do, <strong>your fee per transaction</strong>, and <strong>your Moniepoint cost</strong>.",
+      "How much profit can you make with a Moniepoint POS? A simple daily and monthly calculation for POS agents in Nigeria.",
+    h1: "How much can you make with a Moniepoint POS?",
+    lead: "Your earnings come down to three numbers: <strong>how many transactions</strong> you do, <strong>your fee</strong>, and <strong>your Moniepoint cost</strong>.",
     sections: [
       {
-        h: "Simple profit formula",
-        body: `<div class="example"><strong>Daily profit = (Your fee − Moniepoint cost) × Number of transactions</strong><br><br>
-Illustrative only: if your average profit per transaction is ₦100 and you do 50 transactions a day, that’s ₦5,000/day — about ₦130,000 in a 26-day month, before expenses.</div>`,
+        h: "The simple sum",
+        body: `<div class="example"><strong>Daily profit = (your fee minus Moniepoint cost) × number of transactions</strong><br><br>
+Example only: if you make ₦100 on each transaction and do 50 a day, that is ₦5,000 a day, about ₦130,000 in a 26 day month before expenses.</div>`,
       },
-      { h: "How to increase profit", body: `<ul class="ticks"><li>More float = serve bigger withdrawals.</li><li>Better location = more customers.</li><li>Extra services: transfers, bills, airtime.</li><li>Open longer hours on busy days (market days, month end).</li></ul>` },
+      { h: "How to make more", body: `<ul class="ticks"><li>More float so you can serve bigger withdrawals.</li><li>A better spot with more people passing.</li><li>Extra services: transfers, bills, airtime.</li><li>Longer hours on busy days like market days and month end.</li></ul>` },
     ],
-    faqs: [{ q: "Can POS business make ₦10,000 daily?", a: "Many busy agents do. It depends on your location, float and pricing." }],
+    faqs: [{ q: "Can a POS business make ₦10,000 a day?", a: "Many busy agents do. It depends on your location, float and prices." }],
     related: ["moniepoint-pos-charges", "start-pos-business-nigeria", "moniepoint-loan"],
   },
 
   // ─────────────────────────── BUSINESS ACCOUNT ───────────────────────────
   {
     slug: "moniepoint-business-account",
-    title: "Moniepoint Business Account Opening – Requirements & Steps | {biz}",
+    title: "Open a Moniepoint Business Account: Requirements and Steps | {biz}",
     description:
-      "How to open a Moniepoint business account: requirements, steps, account limits and how it connects to your POS, loans and Moniebook.",
-    h1: "Open a Moniepoint Business Account",
-    lead: "Your Moniepoint business account is the centre of everything — POS settlements, transfers, loans and records all run through it.",
+      "How to open a Moniepoint business account: what you need, the steps, and how it connects to your POS, loans and Moniebook.",
+    h1: "Open a Moniepoint business account",
+    lead: "Your business account is where everything happens. POS settlements, transfers, loans and records all run through it.",
     sections: [
-      { h: "What you get", body: `<ul class="ticks"><li>Business account for receiving payments and POS settlements.</li><li>Transfers to any Nigerian bank.</li><li>Access to POS terminals and, if eligible, loans.</li><li>Integration with Moniebook for records.</li></ul>` },
-      { h: "How to open it", body: `<ol class="steps"><li>Download the official Moniepoint business app from the Play Store or App Store.</li><li>Sign up with your phone number and BVN.</li><li>Complete NIN, ID and selfie verification.</li><li>Add your business details and address.</li></ol><p>Stuck? Message {biz} and we’ll walk you through it.</p>` },
+      { h: "What you get", body: `<ul class="ticks"><li>An account for payments and POS settlements.</li><li>Transfers to any bank in Nigeria.</li><li>Access to POS terminals and, if you qualify, loans.</li><li>Moniebook for your records.</li></ul>` },
+      { h: "How to open it", body: `<ol class="steps"><li>Download the official Moniepoint business app from the Play Store or App Store.</li><li>Sign up with your phone number and BVN.</li><li>Complete NIN, ID and selfie verification.</li><li>Add your business details and address.</li></ol><p>Stuck at any step? Send me a message and I will walk you through it.</p>` },
     ],
-    faqs: [{ q: "Can I open a Moniepoint account without a registered business?", a: "Yes, you can start as an individual/sole business. CAC registration can unlock more features and limits later." }],
+    faqs: [{ q: "Can I open one without a registered business?", a: "Yes. You can start as a sole business. CAC registration can unlock more features and limits later." }],
     related: ["moniepoint-pos-requirements", "moniepoint-loan", "moniebook"],
   },
 
   // ─────────────────────────── MONIEBOOK ───────────────────────────
   {
     slug: "moniebook",
-    title: "Moniebook by Moniepoint – What It Is & How to Use It | {biz}",
+    title: "Moniebook by Moniepoint: What It Is and How to Use It | {biz}",
     description:
-      "Moniebook (sometimes searched as Money Book) is Moniepoint's app for tracking sales, stock, debts and invoices. Here's how small businesses use it.",
-    h1: "Moniebook — Simple Bookkeeping for Your Business",
-    lead: "<strong>Moniebook</strong> (often searched as “Money Book” or “Monie Book”) is Moniepoint’s app for small business records: sales, expenses, inventory, customer debts and invoices — all on your phone.",
+      "Moniebook, often searched as Money Book, is Moniepoint’s app for tracking sales, stock, debts and invoices. Here is how small businesses use it.",
+    h1: "Moniebook: simple records for your business",
+    lead: "<strong>Moniebook</strong>, which many people search as “Money Book”, is Moniepoint’s app for keeping your business records on your phone: sales, expenses, stock, customer debts and invoices.",
     sections: [
-      { h: "What you can do with Moniebook", body: `<ul class="ticks"><li>Record sales and expenses daily.</li><li>Track stock so you know when to restock.</li><li>Keep a list of customers who owe you.</li><li>Send invoices and receipts.</li><li>See your real profit — not just money in and out.</li></ul>` },
-      { h: "Why it matters for POS agents", body: `<p>Good records show you which days and services make money, help you plan your float, and support a strong business history.</p>` },
+      { h: "What you can do with it", body: `<ul class="ticks"><li>Record sales and expenses every day.</li><li>Track stock so you know when to restock.</li><li>Keep a list of customers who owe you.</li><li>Send invoices and receipts.</li><li>See your real profit, not just money in and money out.</li></ul>` },
+      { h: "Why it helps POS agents", body: `<p>Good records show you which days and services make money and help you plan your float. They also build a clear history for your business.</p>` },
     ],
     faqs: [
-      { q: "Is Money Book the same as Moniebook?", a: "Yes — “Money Book” is a common spelling people search for Moniebook by Moniepoint." },
-      { q: "Is Moniebook free?", a: "Check the current plans in the app. We can help you set it up." },
+      { q: "Is Money Book the same as Moniebook?", a: "Yes. Money Book is a common way people search for Moniebook by Moniepoint." },
+      { q: "Is Moniebook free?", a: "Check the current plans in the app. I can help you set it up." },
     ],
     related: ["moniepoint-business-account", "pos-business-profit", "moniepoint-loan"],
   },
@@ -392,33 +392,33 @@ Illustrative only: if your average profit per transaction is ₦100 and you do 5
   // ─────────────────────────── CUSTOMER CARE (honest) ───────────────────────────
   {
     slug: "moniepoint-customer-care",
-    title: "Moniepoint Customer Care – Who to Contact for What | {biz}",
+    title: "Moniepoint Customer Care: Who to Contact for What | {biz}",
     description:
-      "Need Moniepoint customer care? Here's how to reach official Moniepoint support for account issues, and when {biz} can help with POS setup and agent questions.",
-    h1: "Moniepoint Customer Care — Who to Contact",
-    lead: "<strong>This website is not Moniepoint customer care.</strong> It’s run by {owner}, a {role}, who helps new customers get onboarded and grow with Moniepoint. Here’s who to contact for what, so you get help faster and stay safe.",
+      "How to reach official Moniepoint support for account problems, and when to contact {owner}, a Moniepoint BRM, for onboarding and POS help.",
+    h1: "Moniepoint customer care: who to contact",
+    lead: "<strong>This website is not Moniepoint customer care.</strong> I’m {owner}, a {role}, and I help new customers get onboarded and grow. Here is who to contact for what, so you get help faster.",
     sections: [
-      { h: "Contact official Moniepoint support for", body: `<ul><li>Failed or pending transactions and reversals</li><li>Blocked or restricted accounts</li><li>Disputes and chargebacks</li><li>Loan repayments and account statements</li></ul><p>Use the <strong>support/help section inside the official Moniepoint app</strong>, or the contact details on Moniepoint’s official website.</p>` },
-      { h: "Contact {biz} for", body: `<ul class="ticks"><li>Getting a new Moniepoint POS terminal</li><li>Help opening your business account</li><li>Starting or growing a POS business</li><li>Setting up Moniebook</li><li>General “how do I…” questions</li></ul>` },
-      { h: "Stay safe", body: `<p class="warn">⚠️ Nobody genuine will ask for your <strong>PIN, OTP or password</strong> — not Moniepoint, not us. Never share them.</p>` },
+      { h: "Use official Moniepoint support for", body: `<ul><li>Failed or pending transactions and reversals</li><li>Blocked or restricted accounts</li><li>Disputes and chargebacks</li><li>Loan repayments and statements</li></ul><p>Use the <strong>help section inside the official Moniepoint app</strong>, or the contact details on Moniepoint’s official website.</p>` },
+      { h: "Contact me for", body: `<ul class="ticks"><li>Getting a new POS terminal</li><li>Opening your business account</li><li>Starting or growing a POS business</li><li>Setting up Moniebook</li><li>Any “how do I” question</li></ul>` },
+      { h: "Stay safe", body: `<p class="warn">No genuine person will ask for your <strong>PIN, OTP or password</strong>. Not Moniepoint, not me. Never share them.</p>` },
     ],
-    faqs: [{ q: "What is Moniepoint customer care number?", a: "Use the contact options inside the official Moniepoint app or on Moniepoint’s official website. Be careful of fake numbers posted online." }],
+    faqs: [{ q: "What is the Moniepoint customer care number?", a: "Use the contact options in the official Moniepoint app or on Moniepoint’s official website. Be careful with numbers posted on random pages." }],
     related: ["moniepoint-failed-transaction", "moniepoint-pos-not-working", "how-to-get-moniepoint-pos"],
   },
 
   // ─────────────────────────── FAILED TRANSACTION ───────────────────────────
   {
     slug: "moniepoint-failed-transaction",
-    title: "Moniepoint Failed Transaction or Debit – What to Do | {biz}",
+    title: "Moniepoint Failed Transaction or Debit: What to Do | {biz}",
     description:
-      "Customer debited but POS transaction failed? Moniepoint transfer pending? Here's what to do, how reversals work, and how to protect yourself as an agent.",
-    h1: "Moniepoint Failed Transaction — What To Do",
-    lead: "A customer was debited but the POS says failed? Don’t panic. Here’s the right way to handle it.",
+      "Customer debited but the POS transaction failed? Transfer pending? What to do, how reversals work, and how to protect yourself as an agent.",
+    h1: "Moniepoint failed transaction: what to do",
+    lead: "The customer got a debit alert but the POS says failed? Stay calm. Here is how to handle it.",
     sections: [
-      { h: "For POS agents", body: `<ol class="steps"><li><strong>Don’t pay cash</strong> for a failed transaction — even if the customer got a debit alert.</li><li>Print or screenshot the failed receipt.</li><li>Check transaction status in your Moniepoint app.</li><li>Tell the customer reversals go back to their bank automatically, usually within a short period.</li><li>If it doesn’t resolve, raise it with official Moniepoint support from the app.</li></ol>` },
-      { h: "For customers", body: `<p>If your card was debited for a failed POS transaction, the reversal is handled by <strong>your own bank</strong> and the card network. Contact your bank with the date, amount and the agent’s receipt.</p>` },
+      { h: "If you are the agent", body: `<ol class="steps"><li><strong>Don’t pay cash</strong> for a failed transaction, even if the customer shows you a debit alert.</li><li>Print or screenshot the failed receipt.</li><li>Check the transaction status in your Moniepoint app.</li><li>Tell the customer the money goes back to their bank automatically, usually quickly.</li><li>If it doesn’t clear, raise it with official Moniepoint support in the app.</li></ol>` },
+      { h: "If you are the customer", body: `<p>If your card was debited for a failed POS transaction, <strong>your own bank</strong> handles the reversal. Contact them with the date, the amount and the agent’s receipt.</p>` },
     ],
-    faqs: [{ q: "How long does Moniepoint reversal take?", a: "Most reversals happen automatically within a short time, but some take longer depending on the customer’s bank." }],
+    faqs: [{ q: "How long does a Moniepoint reversal take?", a: "Most happen automatically and quickly. Some take longer depending on the customer’s bank." }],
     related: ["moniepoint-customer-care", "moniepoint-pos-not-working"],
   },
 
@@ -427,14 +427,14 @@ Illustrative only: if your average profit per transaction is ₦100 and you do 5
     slug: "moniepoint-pos-not-working",
     title: "Moniepoint POS Not Working? Quick Fixes | {biz}",
     description:
-      "Moniepoint POS not connecting, not printing, or showing errors? Try these quick fixes for network, paper, battery and card-reading problems.",
-    h1: "Moniepoint POS Not Working? Try These Fixes",
+      "Moniepoint POS not connecting, not printing or not reading cards? Try these quick fixes for network, paper, battery and card problems.",
+    h1: "Moniepoint POS not working? Try these",
     lead: "Most POS problems can be fixed in a few minutes.",
     sections: [
-      { h: "Network / not connecting", body: `<ul class="ticks"><li>Restart the terminal.</li><li>Check SIM data or switch to Wi-Fi.</li><li>Move to an area with better signal.</li></ul>` },
-      { h: "Not printing", body: `<ul class="ticks"><li>Check paper roll direction (shiny side faces the print head).</li><li>Clean the print head gently.</li><li>Use the correct paper roll size.</li></ul>` },
-      { h: "Card not reading", body: `<ul class="ticks"><li>Try chip instead of tap (or the other way).</li><li>Clean the card chip.</li><li>Try another card to check if it’s the card or the terminal.</li></ul>` },
-      { h: "Still not working?", body: `<p>Contact official Moniepoint support from your app for terminal faults. For general setup help, message {biz}.</p>` },
+      { h: "Not connecting", body: `<ul class="ticks"><li>Restart the terminal.</li><li>Check the SIM data, or switch to Wi-Fi.</li><li>Move to a spot with better signal.</li></ul>` },
+      { h: "Not printing", body: `<ul class="ticks"><li>Check the paper roll. The shiny side faces the print head.</li><li>Clean the print head gently.</li><li>Use the right paper roll size.</li></ul>` },
+      { h: "Not reading cards", body: `<ul class="ticks"><li>Try chip instead of tap, or the other way round.</li><li>Clean the card chip.</li><li>Try another card to see if the problem is the card or the terminal.</li></ul>` },
+      { h: "Still not working?", body: `<p>Report terminal faults to official Moniepoint support in your app. For setup questions, message me.</p>` },
     ],
     faqs: [],
     related: ["moniepoint-failed-transaction", "moniepoint-customer-care"],
@@ -443,40 +443,40 @@ Illustrative only: if your average profit per transaction is ₦100 and you do 5
   // ─────────────────────────── COMPARISON ───────────────────────────
   {
     slug: "moniepoint-vs-opay-vs-palmpay",
-    title: "Moniepoint vs OPay vs PalmPay POS – Which Is Best? | {biz}",
+    title: "Moniepoint vs OPay vs PalmPay POS: Which Is Best? | {biz}",
     description:
-      "Comparing Moniepoint, OPay and PalmPay POS for agents in Nigeria: reliability, settlement, loans, and business tools. Find out which suits your business.",
+      "Comparing Moniepoint, OPay and PalmPay POS for agents in Nigeria: reliability, settlement, loans and business tools.",
     h1: "Moniepoint vs OPay vs PalmPay POS",
-    lead: "All three are popular in Nigeria. The best one is the one that fits your business — here is what to compare.",
+    lead: "All three are popular in Nigeria. The right one is the one that fits your business. Here is what to compare.",
     sections: [
-      { h: "What to compare", body: `<ul class="ticks"><li><strong>Transaction success rate</strong> in your area.</li><li><strong>Settlement speed</strong> — how fast your money lands.</li><li><strong>Charges</strong> per withdrawal and transfer.</li><li><strong>Loans/credit</strong> for active agents.</li><li><strong>Business tools</strong> — record keeping, multiple terminals, staff accounts.</li><li><strong>Support</strong> when things go wrong.</li></ul>` },
-      { h: "Why many agents choose Moniepoint", body: `<p>Moniepoint is built around businesses: a dedicated business banking app, POS terminals, <a href="/moniepoint-loan/">business loans</a> for eligible users and <a href="/moniebook/">Moniebook</a> for records. Many agents value its reliability on busy days.</p><p>Plenty of agents also keep a second terminal as a backup. Talk to us about what works best where you are.</p>` },
+      { h: "What to compare", body: `<ul class="ticks"><li><strong>Success rate</strong> of transactions in your area.</li><li><strong>Settlement speed</strong>, meaning how fast your money lands.</li><li><strong>Charges</strong> on withdrawals and transfers.</li><li><strong>Loans</strong> for active agents.</li><li><strong>Business tools</strong> like records, extra terminals and staff accounts.</li><li><strong>Support</strong> when something goes wrong.</li></ul>` },
+      { h: "Why many agents pick Moniepoint", body: `<p>Moniepoint is built for businesses. You get a business banking app, POS terminals, <a href="/moniepoint-loan/">business loans</a> for those who qualify, and <a href="/moniebook/">Moniebook</a> for records. Many agents tell me they value how reliable it is on busy days.</p><p>Plenty of agents keep a second terminal as a backup. Talk to me about what works best where you are.</p>` },
     ],
-    faqs: [{ q: "Which POS is best in Nigeria?", a: "It depends on your location and needs. Moniepoint is a strong choice for agents who want reliability, business tools and access to credit." }],
+    faqs: [{ q: "Which POS is best in Nigeria?", a: "It depends on your location and needs. Moniepoint is a strong choice if you want reliability, business tools and access to credit." }],
     related: ["moniepoint-pos-price", "moniepoint-pos-charges", "become-moniepoint-agent"],
   },
 
   // ─────────────────────────── NEAR ME ───────────────────────────
   {
     slug: "moniepoint-near-me",
-    title: "Moniepoint POS Near Me – Get One in Your Area | {biz}",
+    title: "Moniepoint POS Near Me: Find Your State | {biz}",
     description:
-      "Looking for a Moniepoint office, agent or POS seller near you? {biz} helps customers across Nigeria get a Moniepoint POS. Find your state below.",
-    h1: "Moniepoint POS Near Me",
-    lead: "Searching for a Moniepoint office or POS seller near you? Choose your state below or message us with your location.",
+      "Looking for a Moniepoint office or POS near you? A Moniepoint BRM can help you anywhere in Nigeria. Find your state below.",
+    h1: "Moniepoint POS near me",
+    lead: "Looking for a Moniepoint office or someone to get you a POS near you? Pick your state below, or send me your location.",
     sections: [{ h: "Find your state", body: `{{STATE_LINKS}}` }],
-    faqs: [{ q: "Where is the nearest Moniepoint office?", a: "Moniepoint has offices in several cities. If you want to get a POS, message {biz} — it is often faster than visiting an office." }],
+    faqs: [{ q: "Where is the nearest Moniepoint office?", a: "Moniepoint has offices in several cities. If you want a POS, messaging me is usually faster than going to an office." }],
     related: ["how-to-get-moniepoint-pos", "moniepoint-pos-price"],
   },
 
   // ─────────────────────────── CONTACT ───────────────────────────
   {
     slug: "contact",
-    title: "Contact {biz} – Get Your Moniepoint POS",
-    description: "Call or WhatsApp {biz} to get a Moniepoint POS, open your business account or get help with your POS business.",
-    h1: "Contact {biz}",
-    lead: "The fastest way to reach us is WhatsApp. Tell us your location and what you need.",
-    sections: [{ h: "Reach us", body: `{{CONTACT_BLOCK}}` }],
+    title: "Contact {owner}, Moniepoint BRM | {biz}",
+    description: "Call or WhatsApp {owner}, a Business Relationship Manager at Moniepoint, to get a POS, open a business account or grow your business.",
+    h1: "Talk to me",
+    lead: "WhatsApp is the fastest way to reach me. Tell me where you are and what you need.",
+    sections: [{ h: "Reach me", body: `{{CONTACT_BLOCK}}` }],
     faqs: [],
     related: ["moniepoint-pos-price", "how-to-get-moniepoint-pos"],
   },
