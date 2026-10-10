@@ -19,7 +19,9 @@ const fill = (s) =>
     .replaceAll("{biz}", config.businessName)
     .replaceAll("{phone}", config.phone)
     .replaceAll("{city}", config.address.city)
-    .replaceAll("{state}", config.address.state);
+    .replaceAll("{state}", config.address.state)
+    .replaceAll("{owner}", config.ownerName)
+    .replaceAll("{role}", config.ownerRole);
 const url = (slug) => `${config.siteUrl}/${slug ? slug + "/" : ""}`;
 const waLink = (text) => `https://wa.me/${config.whatsapp}?text=${encodeURIComponent(text)}`;
 
@@ -70,8 +72,8 @@ const stateLinks = `<ul class="state-grid">${allPages
   .join("")}</ul>`;
 
 const contactBlock = () => `<div class="contact-card">
-<p><a class="btn btn-wa" href="${waLink("Hello, I want a Moniepoint POS.")}" rel="nofollow">💬 Chat on WhatsApp</a>
-<a class="btn btn-call" href="tel:${esc(config.phone)}">📞 Call ${esc(config.phone)}</a></p>
+<p><a class="btn btn-wa" href="${waLink("Hello, I want a Moniepoint POS.")}" rel="nofollow">${icon.chat} Chat on WhatsApp</a>
+<a class="btn btn-ghost" href="tel:${esc(config.phone)}">${icon.phone} Call ${esc(config.phone)}</a></p>
 <p><strong>Email:</strong> <a href="mailto:${esc(config.email)}">${esc(config.email)}</a><br>
 <strong>Address:</strong> ${esc(config.address.street)}, ${esc(config.address.city)}, ${esc(config.address.state)}<br>
 <strong>Hours:</strong> ${esc(config.hours)}</p></div>`;
@@ -94,7 +96,8 @@ function schema(page) {
     url: config.siteUrl + "/",
     telephone: config.phone,
     email: config.email,
-    description: `Independent business helping customers get Moniepoint POS terminals, business accounts and POS business support in Nigeria.`,
+    description: `${config.ownerName}, ${config.ownerRole}, helps businesses get Moniepoint POS terminals, business accounts, loans and Moniebook in Nigeria.`,
+    founder: { "@type": "Person", name: config.ownerName, jobTitle: config.ownerRole },
     address: {
       "@type": "PostalAddress",
       streetAddress: config.address.street,
@@ -127,6 +130,57 @@ function schema(page) {
   return blocks.map((b) => `<script type="application/ld+json">${JSON.stringify(b).replace(/</g, "\\u003c")}</script>`).join("\n");
 }
 
+// ───────────── Brand: logo, icons, illustration ─────────────
+const initials = config.businessName.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
+const logoSvg = (size) => `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 40 40"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f4fd8"/><stop offset="1" stop-color="#16a3c4"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#lg)"/><text x="20" y="26" text-anchor="middle" font-family="Sora, Arial, sans-serif" font-weight="800" font-size="15" fill="#fff">${esc(initials)}</text><circle cx="32" cy="9" r="3" fill="#f5b544"/></svg>`;
+const logoMark = `<span class="logo">${logoSvg(36)}</span>`;
+const icon = {
+  chat: `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7a11.4 11.4 0 0 1-4.6-4.1c-.4-.5-1-1.6-1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.6 2a7.6 7.6 0 0 0 2.3 1.5c.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg>`,
+  phone: `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>`,
+  check: `<svg class="ic ic-check" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".14"/><path d="m7 12.5 3.2 3.2L17.5 8.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+};
+const trustItems = [
+  ["Direct onboarding", "Handled by a Moniepoint BRM"],
+  ["Nationwide", "All 36 states + FCT"],
+  ["Real support", "WhatsApp replies, no wahala"],
+  ["Safe & honest", "We never ask for PIN or OTP"],
+];
+const terminalArt = `<svg viewBox="0 0 320 340" class="terminal">
+  <defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe7fb"/></linearGradient></defs>
+  <rect x="150" y="18" width="150" height="96" rx="16" fill="#ffffff" opacity=".12"/>
+  <text x="166" y="50" font-family="Nunito Sans, Arial" font-size="12" fill="#cfe0ff">Today’s earnings</text>
+  <text x="166" y="80" font-family="Sora, Arial" font-weight="800" font-size="24" fill="#ffffff">₦24,500</text>
+  <rect x="166" y="92" width="80" height="6" rx="3" fill="#f5b544"/>
+  <g transform="translate(40 70)">
+    <rect width="170" height="260" rx="26" fill="url(#tg)"/>
+    <rect x="18" y="-14" width="134" height="30" rx="6" fill="#f2f5fc"/>
+    <rect x="18" y="20" width="134" height="92" rx="12" fill="#0f1f44"/>
+    <text x="34" y="52" font-family="Nunito Sans, Arial" font-size="11" fill="#9fb4e8">Withdrawal</text>
+    <text x="34" y="82" font-family="Sora, Arial" font-weight="800" font-size="22" fill="#ffffff">₦10,000</text>
+    <text x="34" y="100" font-family="Nunito Sans, Arial" font-size="10" fill="#4ade80">✓ Approved</text>
+    ${[0, 1, 2, 3].map((r) => [0, 1, 2].map((c) => `<rect x="${24 + c * 44}" y="${128 + r * 30}" width="34" height="22" rx="7" fill="${r === 3 && c === 2 ? "#2f4fd8" : "#c9d5f3"}"/>`).join("")).join("")}
+  </g>
+  <circle cx="262" cy="250" r="38" fill="#25c26e"/>
+  <path d="m246 250 11 11 20-22" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+const products = ["POS terminal", "Business account", "Business loan", "Moniebook", "Personal account", "Something else"];
+const leadForm = `<section class="lead-form" id="enquire">
+  <h2>Tell me what you need</h2>
+  <p>Fill this in and it opens WhatsApp with your message ready to send. I reply fast.</p>
+  <form data-wa="${config.whatsapp}">
+    <label for="lf-name">Your name</label><input id="lf-name" name="name" required autocomplete="name" placeholder="e.g. Chidi">
+    <label for="lf-town">Town / area</label><input id="lf-town" name="town" required placeholder="e.g. Ikeja, Lagos">
+    <label for="lf-need">I’m interested in</label><select id="lf-need" name="need">${products.map((p) => `<option>${p}</option>`).join("")}</select>
+    <button class="btn btn-wa" type="submit">${icon.chat} Send on WhatsApp</button>
+  </form>
+</section>
+<script>document.querySelectorAll(".lead-form form").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();var d=new FormData(f);var msg="Hello ${esc(config.ownerName)}, my name is "+d.get("name")+" from "+d.get("town")+". I'm interested in: "+d.get("need")+" (Moniepoint). Page: "+document.title;window.location.href="https://wa.me/"+f.dataset.wa+"?text="+encodeURIComponent(msg);});});</script>`;
+const reviewsBlock = (config.reviews || []).length
+  ? `<section class="reviews"><h2>What our customers say</h2><div class="review-grid">${config.reviews
+      .map((r) => `<figure class="review"><blockquote>“${esc(r.text)}”</blockquote><figcaption>${esc(r.name)}${r.place ? `, ${esc(r.place)}` : ""}</figcaption></figure>`)
+      .join("")}</div></section>`
+  : "";
+
 function render(page) {
   const title = fill(page.title);
   const desc = fill(page.description);
@@ -149,6 +203,24 @@ function render(page) {
     .map((p) => `<li><a href="/${p.slug}/">${stripTags(fill(p.h1))}</a></li>`)
     .join("");
 
+  const isHome = page.slug === "";
+  const hero = `<section class="hero${isHome ? " hero-home" : ""}">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      ${page.slug && page.slug !== "404" ? `<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>${stripTags(fill(page.h1))}</span></nav>` : ""}
+      <p class="eyebrow">${page.isLocation ? `Serving ${esc(page.stateName)} · ` : ""}With ${esc(config.ownerName)}, Moniepoint BRM</p>
+      <h1>${fill(page.h1)}</h1>
+      <p class="lead">${fill(page.lead)}</p>
+      <div class="cta-row">
+        <a class="btn btn-wa" href="${waLink(waText)}" rel="nofollow">${icon.chat} Chat on WhatsApp</a>
+        <a class="btn btn-ghost" href="tel:${esc(config.phone)}">${icon.phone} Call ${esc(config.phone)}</a>
+      </div>
+    </div>
+    ${isHome ? `<div class="hero-art" aria-hidden="true">${terminalArt}</div>` : ""}
+  </div>
+</section>
+<div class="trust"><div class="wrap trust-grid">${trustItems.map(([t, d]) => `<div class="trust-item">${icon.check}<div><strong>${t}</strong><span>${d}</span></div></div>`).join("")}</div></div>`;
+
   return `<!doctype html>
 <html lang="en-NG">
 <head>
@@ -166,53 +238,54 @@ ${config.googleVerification ? `<meta name="google-site-verification" content="${
 <meta property="og:site_name" content="${esc(config.businessName)}">
 <meta property="og:locale" content="en_NG">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#0b5d3b">
+<meta name="theme-color" content="#0f1f44">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="/assets/style.css">
 ${schema(page)}
 </head>
 <body>
 <header class="top">
   <div class="wrap bar">
-    <a class="brand" href="/">${esc(config.businessName)}</a>
-    <nav aria-label="Main">${navItems.map(([s, l]) => `<a href="/${s}/">${l}</a>`).join("")}</nav>
+    <a class="brand" href="/">${logoMark}<span>${esc(config.businessName)}</span></a>
+    <nav aria-label="Main">${navItems.map(([s, l]) => `<a href="/${s}/"${s === page.slug ? ' aria-current="page"' : ""}>${l}</a>`).join("")}</nav>
   </div>
 </header>
+${hero}
 <main class="wrap">
-  ${page.slug ? `<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>${stripTags(fill(page.h1))}</span></nav>` : ""}
-  <article>
-    <h1>${fill(page.h1)}</h1>
-    <p class="lead">${fill(page.lead)}</p>
-    <p class="cta-row">
-      <a class="btn btn-wa" href="${waLink(waText)}" rel="nofollow">💬 Chat on WhatsApp</a>
-      <a class="btn btn-call" href="tel:${esc(config.phone)}">📞 Call Now</a>
-    </p>
+  <article class="content">
     ${body}
+    ${reviewsBlock}
+    ${page.slug === "404" ? "" : leadForm}
     ${faqs}
-    <section class="cta-box">
-      <h2>Ready to get your Moniepoint POS?</h2>
-      <p>Message ${esc(config.businessName)} now — we reply fast. ${esc(config.hours)}.</p>
-      <p><a class="btn btn-wa" href="${waLink(waText)}" rel="nofollow">💬 Chat on WhatsApp</a></p>
-    </section>
-    ${related ? `<aside class="related"><h2>Related guides</h2><ul>${related}</ul></aside>` : ""}
   </article>
+  <section class="cta-box">
+    <div>
+      <h2>Ready to get your Moniepoint POS?</h2>
+      <p>Message ${esc(config.businessName)} now. We reply fast, ${esc(config.hours)}.</p>
+    </div>
+    <a class="btn btn-wa" href="${waLink(waText)}" rel="nofollow">${icon.chat} Chat on WhatsApp</a>
+  </section>
+  ${related ? `<aside class="related"><h2>Related guides</h2><ul>${related}</ul></aside>` : ""}
 </main>
 <footer class="foot">
   <div class="wrap">
     <div class="cols">
+      <div><a class="brand foot-brand" href="/">${logoMark}<span>${esc(config.businessName)}</span></a><p>${esc(config.address.street)}, ${esc(config.address.city)}, ${esc(config.address.state)}<br><a href="tel:${esc(config.phone)}">${esc(config.phone)}</a><br><a href="mailto:${esc(config.email)}">${esc(config.email)}</a><br>${esc(config.hours)}</p></div>
       <div><h3>Guides</h3><ul>${footerTopics}</ul></div>
       <div><h3>Popular locations</h3><ul>${allPages
         .filter((p) => p.isLocation)
         .slice(0, 8)
         .map((p) => `<li><a href="/${p.slug}/">Moniepoint POS ${esc(p.stateName)}</a></li>`)
         .join("")}<li><a href="/moniepoint-near-me/">All states →</a></li></ul></div>
-      <div><h3>Contact</h3><p>${esc(config.businessName)}<br>${esc(config.address.city)}, ${esc(config.address.state)}<br><a href="tel:${esc(config.phone)}">${esc(config.phone)}</a><br>${esc(config.hours)}</p></div>
     </div>
-    <p class="disclaimer"><strong>Disclaimer:</strong> ${esc(config.businessName)} is an independent business and is not Moniepoint Inc., Moniepoint Microfinance Bank or an official Moniepoint customer care channel. “Moniepoint” and “Moniebook” are trademarks of their respective owners and are used here only to describe the products we help customers with. For account issues, use the official Moniepoint app. We will never ask for your PIN, OTP or password.</p>
+    <p class="disclaimer"><strong>About this site:</strong> ${esc(config.businessName)} is the personal website of ${esc(config.ownerName)}, a ${esc(config.ownerRole)}. It is not Moniepoint’s official website or customer care channel. “Moniepoint” and “Moniebook” are trademarks of Moniepoint Inc. For account issues, use the official Moniepoint app. We will never ask for your PIN, OTP or password.</p>
     <p class="copy">© ${new Date().getFullYear()} ${esc(config.businessName)}</p>
   </div>
 </footer>
-<a class="wa-float" href="${waLink(waText)}" rel="nofollow" aria-label="Chat on WhatsApp">💬</a>
+<a class="wa-float" href="${waLink(waText)}" rel="nofollow" aria-label="Chat on WhatsApp">${icon.chat}</a>
 </body>
 </html>`;
 }
@@ -221,7 +294,7 @@ ${schema(page)}
 await rm(out, { recursive: true, force: true });
 await mkdir(join(out, "assets"), { recursive: true });
 await copyFile(join(root, "assets/style.css"), join(out, "assets/style.css"));
-await copyFile(join(root, "assets/favicon.svg"), join(out, "assets/favicon.svg"));
+await writeFile(join(out, "assets/favicon.svg"), logoSvg(64));
 
 for (const page of allPages) {
   const dir = join(out, page.slug);

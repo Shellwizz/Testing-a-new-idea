@@ -8,6 +8,10 @@ export default {
   // Your business / brand name as customers should see it.
   businessName: "PointPro POS Services",
 
+  // You, the person customers will deal with, and your role at Moniepoint.
+  ownerName: "Your Name",
+  ownerRole: "Moniepoint Business Relationship Manager (BRM)",
+
   // The live web address you will deploy to (no trailing slash).
   // Needed for the sitemap and canonical links — update before going live.
   siteUrl: "https://www.example.com",
@@ -40,6 +44,12 @@ export default {
   socialLinks: [
     // "https://www.facebook.com/yourpage",
     // "https://www.instagram.com/yourpage",
+  ],
+
+  // Real customer reviews (shown on every page when filled in). Only use
+  // genuine reviews from real customers, with their permission.
+  reviews: [
+    // { name: "Amaka O.", place: "Onitsha", text: "Got my POS set up in two days. Very helpful." },
   ],
 
   // Optional: Google Search Console verification code (the content="..." value).

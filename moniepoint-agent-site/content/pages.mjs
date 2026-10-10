@@ -4,6 +4,7 @@
 // Placeholders replaced at build time:
 //   {biz}  business name      {phone}  phone number
 //   {city} your city          {state}  your state
+//   {owner} your name          {role}   your Moniepoint role
 //
 // Keep facts general and honest. Don't publish exact fees or loan rates
 // unless you have confirmed them — wrong numbers lose customers' trust and
@@ -23,7 +24,7 @@ export const pages = [
       {
         h: "What we do for you",
         body: `<ul class="ticks">
-<li><strong>Get a Moniepoint POS terminal</strong> — we guide you from request to activation.</li>
+<li><strong>Get a Moniepoint POS terminal</strong> — onboarding directly with a Moniepoint BRM, from request to activation.</li>
 <li><strong>Open your Moniepoint business account</strong> — we help you get your documents right the first time.</li>
 <li><strong>Start a POS business</strong> — location tips, cash management, pricing your services.</li>
 <li><strong>Moniepoint loan guidance</strong> — how to build the transaction history that qualifies you.</li>
@@ -56,7 +57,7 @@ export const pages = [
       },
       {
         q: "Is {biz} Moniepoint?",
-        a: "No. {biz} is an independent business that helps customers get and use Moniepoint POS terminals and services. For issues with your Moniepoint account itself, always use Moniepoint’s official app and support channels.",
+        a: "{biz} is run by {owner}, a {role}. This is {owner}’s own website, not Moniepoint’s official website. {owner} can onboard you to Moniepoint directly. For issues with an existing account, also use Moniepoint’s official app and support channels.",
       },
     ],
     related: ["moniepoint-pos-price", "how-to-get-moniepoint-pos", "moniepoint-loan", "moniepoint-pos-charges", "start-pos-business-nigeria", "money-point-pos"],
@@ -395,7 +396,7 @@ Illustrative only: if your average profit per transaction is ₦100 and you do 5
     description:
       "Need Moniepoint customer care? Here's how to reach official Moniepoint support for account issues, and when {biz} can help with POS setup and agent questions.",
     h1: "Moniepoint Customer Care — Who to Contact",
-    lead: "<strong>{biz} is not Moniepoint customer care.</strong> We’re an independent business that helps people get and use Moniepoint POS. Here’s who to contact for what, so you get help faster and stay safe.",
+    lead: "<strong>This website is not Moniepoint customer care.</strong> It’s run by {owner}, a {role}, who helps new customers get onboarded and grow with Moniepoint. Here’s who to contact for what, so you get help faster and stay safe.",
     sections: [
       { h: "Contact official Moniepoint support for", body: `<ul><li>Failed or pending transactions and reversals</li><li>Blocked or restricted accounts</li><li>Disputes and chargebacks</li><li>Loan repayments and account statements</li></ul><p>Use the <strong>support/help section inside the official Moniepoint app</strong>, or the contact details on Moniepoint’s official website.</p>` },
       { h: "Contact {biz} for", body: `<ul class="ticks"><li>Getting a new Moniepoint POS terminal</li><li>Help opening your business account</li><li>Starting or growing a POS business</li><li>Setting up Moniebook</li><li>General “how do I…” questions</li></ul>` },
