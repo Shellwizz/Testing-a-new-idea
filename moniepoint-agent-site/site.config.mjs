@@ -24,7 +24,7 @@ export default {
 
   // The live web address you will deploy to (no trailing slash).
   // Needed for the sitemap and canonical links — update before going live.
-  siteUrl: "https://www.example.com",
+  siteUrl: "https://moniepointpos.netlify.app",
 
   // Phone number in international format, digits only after the +.
   phone: "+2349060349028",
