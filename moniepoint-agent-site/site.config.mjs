@@ -6,10 +6,10 @@
 // ─────────────────────────────────────────────────────────────
 export default {
   // Your business / brand name as customers should see it.
-  businessName: "BizPoint Hub",
+  businessName: "Stanley's Moniepoint Hub",
 
   // You, the person customers will deal with, and your role at Moniepoint.
-  ownerName: "Your Name",
+  ownerName: "Okonkwo Stanley",
   // Optional: a real photo of you makes the site far more trustworthy.
   // Put the file in the assets folder and write its name here, e.g. "me.jpg".
   photo: "",
