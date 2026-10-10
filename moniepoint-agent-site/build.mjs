@@ -10,6 +10,7 @@ import { states } from "./content/locations.mjs";
 const root = dirname(fileURLToPath(import.meta.url));
 const out = join(root, "dist");
 const today = new Date().toISOString().slice(0, 10);
+const prettyDate = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const stripTags = (s) => String(s).replace(/<[^>]+>/g, "");
@@ -64,6 +65,23 @@ const locationPages = states.map((s, i) => ({
 }));
 
 const allPages = [...pages, ...(config.nationwide ? locationPages : locationPages.filter((p) => p.stateName === config.address.state))];
+// FAQ hub: every question on the site in one place (great for AI answers).
+const hubFaqs = [];
+const seenQ = new Set();
+for (const p of pages) for (const f of p.faqs || []) {
+  const key = f.q.toLowerCase();
+  if (!seenQ.has(key)) { seenQ.add(key); hubFaqs.push({ ...f, from: p.slug }); }
+}
+allPages.push({
+  slug: "moniepoint-questions",
+  title: "Moniepoint Questions Answered: POS, Loans, Charges, Moniebook | {biz}",
+  description: "Straight answers to the most common Moniepoint questions: POS price, charges, loans, requirements, Moniebook, customer care and more. From {owner}, a Moniepoint BRM.",
+  h1: "Moniepoint questions, answered",
+  lead: "Every question customers ask me most, with a short, straight answer. Tap any question to read it, or follow the link for the full guide.",
+  sections: [],
+  faqs: hubFaqs,
+  related: ["moniepoint-pos-price", "moniepoint-loan", "how-to-get-moniepoint-pos", "moniepoint-pos-charges"],
+});
 const bySlug = Object.fromEntries(allPages.map((p) => [p.slug, p]));
 
 // ───────────── Reusable blocks ─────────────
@@ -85,6 +103,7 @@ const navItems = [
   ["moniepoint-loan", "Loans"],
   ["moniebook", "Moniebook"],
   ["moniepoint-near-me", "Near Me"],
+  ["moniepoint-questions", "FAQ"],
   ["contact", "Contact"],
 ];
 
@@ -93,6 +112,9 @@ function schema(page) {
     "@context": "https://schema.org",
     "@type": "FinancialService",
     "@id": `${config.siteUrl}/#business`,
+    image: `${config.siteUrl}/assets/og.png`,
+    logo: `${config.siteUrl}/assets/favicon.svg`,
+    priceRange: "₦₦",
     name: config.businessName,
     url: config.siteUrl + "/",
     telephone: config.phone,
@@ -110,7 +132,44 @@ function schema(page) {
     openingHoursSpecification: config.openingHoursSpec.map((o) => ({ "@type": "OpeningHoursSpecification", dayOfWeek: o.days, opens: o.opens, closes: o.closes })),
     ...(config.socialLinks.length ? { sameAs: config.socialLinks } : {}),
   };
-  const blocks = [business];
+  const person = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${config.siteUrl}/#owner`,
+    name: config.ownerName,
+    jobTitle: config.ownerRole,
+    worksFor: { "@type": "Organization", name: "Moniepoint" },
+    telephone: config.phone,
+    email: config.email,
+    url: config.siteUrl + "/",
+    knowsAbout: ["Moniepoint POS", "Moniepoint business account", "Moniepoint loans", "Moniebook", "POS business in Nigeria"],
+    ...(config.socialLinks.length ? { sameAs: config.socialLinks } : {}),
+  };
+  const webpage = {
+    "@context": "https://schema.org",
+    "@type": page.slug === "" ? "WebPage" : "Article",
+    headline: stripTags(fill(page.h1)),
+    description: fill(page.description),
+    url: url(page.slug),
+    inLanguage: "en-NG",
+    datePublished: "2026-10-10",
+    dateModified: today,
+    author: { "@id": `${config.siteUrl}/#owner` },
+    publisher: { "@id": `${config.siteUrl}/#business` },
+    image: `${config.siteUrl}/assets/og.png`,
+    about: { "@type": "Thing", name: "Moniepoint" },
+  };
+  const blocks = [business, person, webpage];
+  if (page.slug === "") {
+    blocks.push({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: config.businessName,
+      alternateName: ["Moniepoint POS with Okonkwo Stanley", "Money Point POS"],
+      url: config.siteUrl + "/",
+      inLanguage: "en-NG",
+    });
+  }
   if (page.slug) {
     blocks.push({
       "@context": "https://schema.org",
@@ -204,7 +263,7 @@ function render(page) {
     .join("\n");
   const faqs = page.faqs?.length
     ? `<section class="faq"><h2>Frequently asked questions</h2>${page.faqs
-        .map((f) => `<details><summary>${fill(f.q)}</summary><p>${fill(f.a)}</p></details>`)
+        .map((f) => `<details${page.slug === "moniepoint-questions" ? " open" : ""}><summary>${fill(f.q)}</summary><p>${fill(f.a)}${f.from !== undefined && page.slug === "moniepoint-questions" ? ` <a href="/${f.from ? f.from + "/" : ""}">Full guide</a>` : ""}</p></details>`)
         .join("")}</section>`
     : "";
   const related = (page.related || [])
@@ -217,6 +276,7 @@ function render(page) {
     .join("");
 
   const isHome = page.slug === "";
+  const quick = page.slug === "moniepoint-questions" || page.slug === "404" ? null : page.answer || (page.faqs || [])[0];
   const hero = `<section class="hero${isHome ? " hero-home" : ""}">
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -224,6 +284,7 @@ function render(page) {
       <p class="eyebrow">${page.isLocation ? `Serving ${esc(page.stateName)} · ` : ""}${esc(config.ownerName)} · Business Relationship Manager, Moniepoint</p>
       <h1>${fill(page.h1)}</h1>
       <p class="lead">${fill(page.lead)}</p>
+      <p class="byline">By ${esc(config.ownerName)}, Business Relationship Manager at Moniepoint · Updated <time datetime="${today}">${prettyDate}</time></p>
       <div class="cta-row">
         <a class="btn btn-wa" href="${waLink(waText)}" rel="nofollow">${icon.chat} Chat on WhatsApp</a>
         <a class="btn btn-ghost" href="tel:${esc(config.phone)}">${icon.phone} Call ${esc(config.phone)}</a>
@@ -250,7 +311,13 @@ ${config.googleVerification ? `<meta name="google-site-verification" content="${
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="${esc(config.businessName)}">
 <meta property="og:locale" content="en_NG">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="${config.siteUrl}/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${config.siteUrl}/assets/og.png">
+<meta name="author" content="${esc(config.ownerName)}">
+<link rel="alternate" hreflang="en-NG" href="${canonical}">
 <meta name="theme-color" content="#0f1f44">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -269,6 +336,7 @@ ${schema(page)}
 ${hero}
 <main class="wrap">
   <article class="content">
+    ${quick ? `<div class="answer"><p class="answer-q">Quick answer: ${fill(quick.q)}</p><p>${fill(quick.a)}</p></div>` : ""}
     ${isHome || page.slug === "contact" ? aboutBlock : ""}
     ${body}
     ${reviewsBlock}
@@ -331,7 +399,32 @@ ${allPages.map((p) => `  <url><loc>${url(p.slug)}</loc><lastmod>${today}</lastmo
 </urlset>
 `;
 await writeFile(join(out, "sitemap.xml"), sitemap);
-await writeFile(join(out, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${config.siteUrl}/sitemap.xml\n`);
+const aiBots = ["Googlebot", "Bingbot", "Google-Extended", "GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "PerplexityBot", "Applebot", "Applebot-Extended", "meta-externalagent", "CCBot"];
+await writeFile(
+  join(out, "robots.txt"),
+  `# Search engines and AI assistants are welcome to read and cite this site.\n${aiBots.map((b) => `User-agent: ${b}\nAllow: /\n`).join("\n")}\nUser-agent: *\nAllow: /\n\nSitemap: ${config.siteUrl}/sitemap.xml\n`
+);
+
+// llms.txt: a plain summary that AI assistants read to understand the site.
+const llms = `# ${config.businessName}
+
+> ${config.ownerName} is a ${config.ownerRole}. This site helps people in Nigeria get a Moniepoint POS terminal, open a Moniepoint business account, understand Moniepoint loans, charges and Moniebook, and start a POS business. Contact: ${config.phone} (call or WhatsApp), ${config.email}. This is ${config.ownerName}'s own website, not Moniepoint's official website.
+
+Common spellings people use for Moniepoint: Money Point, Monie Point, Moneypoint, Monipoint. Moniebook is often searched as Money Book.
+
+## Guides
+${pages.filter((p) => p.slug && p.slug !== "contact").map((p) => `- [${stripTags(fill(p.h1))}](${url(p.slug)}): ${fill(p.description)}`).join("\n")}
+- [Moniepoint questions answered](${url("moniepoint-questions")}): Short answers to the most common Moniepoint questions.
+
+## Locations
+${allPages.filter((p) => p.isLocation).map((p) => `- [Moniepoint POS in ${p.stateName}](${url(p.slug)})`).join("\n")}
+
+## Contact
+- [Contact ${config.ownerName}](${url("contact")})
+`;
+await writeFile(join(out, "llms.txt"), llms);
+if (config.indexNowKey) await writeFile(join(out, `${config.indexNowKey}.txt`), config.indexNowKey);
+await copyFile(join(root, "assets/og.png"), join(out, "assets/og.png"));
 
 console.log(`Built ${allPages.length} pages → ${out}`);
 if (config.siteUrl.includes("example.com")) console.warn("⚠  siteUrl is still example.com. Update site.config.mjs before deploying.");

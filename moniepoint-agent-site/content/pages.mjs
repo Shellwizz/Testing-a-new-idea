@@ -37,6 +37,10 @@ export const pages = [
 <p>Moniepoint Microfinance Bank is licensed by the CBN and deposits are insured by the NDIC.</p>`,
       },
       {
+        h: "You may have searched for",
+        body: `<p class="variants">Moniepoint POS · Money Point POS · Monie Point · Moneypoint · Moniepoint agent · Moniepoint BRM · Moniepoint near me · Moniepoint business account · Moniepoint loan · Money Point loan · Moniebook · Money Book · Moniepoint POS price · Moniepoint charges</p><p>They all lead to the same place. I can help with every one of them.</p>`,
+      },
+      {
         h: "How it works",
         body: `<ol class="steps">
 <li>Send me a message on WhatsApp or call. Tell me where you are and what you need.</li>
@@ -467,6 +471,50 @@ Example only: if you make ₦100 on each transaction and do 50 a day, that is �
     sections: [{ h: "Find your state", body: `{{STATE_LINKS}}` }],
     faqs: [{ q: "Where is the nearest Moniepoint office?", a: "Moniepoint has offices in several cities. If you want a POS, messaging me is usually faster than going to an office." }],
     related: ["how-to-get-moniepoint-pos", "moniepoint-pos-price"],
+  },
+
+  // ─────────────────────────── MERCHANT POS (shops) ───────────────────────────
+  {
+    slug: "moniepoint-pos-for-shops",
+    title: "Moniepoint POS for Shops, Supermarkets and Restaurants | {biz}",
+    description:
+      "Accept card payments and transfers in your shop with a Moniepoint POS. For supermarkets, pharmacies, restaurants, boutiques and any business that sells to customers.",
+    h1: "Moniepoint POS for shops and businesses",
+    answer: {
+      q: "Can I use a Moniepoint POS to collect payment in my shop?",
+      a: "Yes. A Moniepoint POS lets your shop accept card payments and transfers, and the money settles into your Moniepoint business account. Message me to get one set up.",
+    },
+    lead: "Not every POS is for cash withdrawals. If you run a shop, supermarket, pharmacy, restaurant or boutique, a Moniepoint POS lets customers <strong>pay you by card or transfer</strong>, so you lose fewer sales to “I don’t have cash”.",
+    sections: [
+      {
+        h: "Who it is for",
+        body: `<ul class="ticks">
+<li>Supermarkets and provision stores</li>
+<li>Pharmacies and hospitals</li>
+<li>Restaurants, bars and fast food spots</li>
+<li>Fashion, phone and electronics shops</li>
+<li>Schools, hotels and service businesses</li>
+</ul>`,
+      },
+      {
+        h: "What you get",
+        body: `<ul class="ticks">
+<li><strong>Card and transfer payments</strong> straight into your business account.</li>
+<li><strong>Receipts</strong> printed for customers.</li>
+<li><strong>Records</strong> of every sale in the app, and in <a href="/moniebook/">Moniebook</a> if you use it.</li>
+<li><strong>Room to grow.</strong> Steady sales can make you eligible for <a href="/moniepoint-loan/">Moniepoint business loans</a>.</li>
+</ul>`,
+      },
+      {
+        h: "How to get one",
+        body: `<p>Open a <a href="/moniepoint-business-account/">Moniepoint business account</a>, request a terminal, and start taking payments. I can do the whole process with you. Send me your business type and location on WhatsApp.</p>`,
+      },
+    ],
+    faqs: [
+      { q: "Do I need a CAC certificate to get a Moniepoint POS for my shop?", a: "Not always to start, but a registered business can unlock higher limits. Tell me about your business and I will advise you." },
+      { q: "Can I have more than one Moniepoint POS?", a: "Yes. Many shops run several terminals, for example one per till. Ask me about your setup." },
+    ],
+    related: ["moniepoint-business-account", "moniepoint-pos-price", "moniebook", "moniepoint-loan"],
   },
 
   // ─────────────────────────── CONTACT ───────────────────────────

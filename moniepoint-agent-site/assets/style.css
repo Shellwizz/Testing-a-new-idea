@@ -125,3 +125,10 @@ ul,ol{padding-left:1.3em}
 .about-role{color:var(--blue);font-weight:800;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase}
 .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;flex:none}
 .avatar-initials{display:flex;align-items:center;justify-content:center;background:var(--sky);color:var(--blue);font:800 2rem/1 var(--display);border:3px solid #fff;box-shadow:0 0 0 2px var(--line)}
+
+/* Byline, quick answer, variants */
+.byline{font-size:.88rem;color:#b9c7ef;margin:-8px 0 22px}
+.answer{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:16px 18px;margin-top:28px}
+.answer p{margin:0}
+.answer .answer-q{font-family:var(--display);font-weight:700;color:var(--navy);margin-bottom:6px}
+.variants{color:var(--muted);line-height:2}

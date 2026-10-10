@@ -55,6 +55,10 @@ export default {
     // { name: "Amaka O.", place: "Onitsha", text: "Got my POS set up in two days. Very helpful." },
   ],
 
+  // IndexNow key: lets Bing (which feeds ChatGPT search and Copilot) pick up
+  // new pages within minutes. Any random 32 letters/numbers. Keep it.
+  indexNowKey: "b7e4c19a5d2f4e8c9a1b6d3f0e7c2a58",
+
   // Optional: Google Search Console verification code (the content="..." value).
   googleVerification: "",
 };

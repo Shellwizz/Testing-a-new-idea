@@ -21,13 +21,26 @@ Output is in `dist/` (55 pages + sitemap.xml + robots.txt).
   publish directory `moniepoint-agent-site/dist`.
 - Connect your own domain (e.g. `yourname-pos.com.ng`).
 
-## 4. Get Google to find you (most important)
-1. Add the site to **Google Search Console**, verify, and submit `/sitemap.xml`.
-2. Create a **Google Business Profile** for your shop. This is what wins
+## 4. Get found by Google, Bing and AI assistants (most important)
+
+Built in already: unique titles and descriptions, a quick answer at the top of
+every page, an author byline with an updated date, FAQ, Person,
+LocalBusiness, Article and breadcrumb structured data, a FAQ hub page,
+`llms.txt` for AI assistants, a `robots.txt` that welcomes Google, Bing,
+ChatGPT, Claude and Perplexity crawlers, a social share image, and an
+IndexNow key for fast Bing indexing.
+
+After you go live:
+1. Set `siteUrl` in `site.config.mjs` to your live address and rebuild.
+2. **Google Search Console**: add the site, submit `/sitemap.xml`.
+3. **Bing Webmaster Tools**: import from Google Search Console, submit the
+   sitemap. Bing powers ChatGPT search and Copilot answers.
+4. Run `node ping-indexnow.mjs` every time you publish changes.
+5. Create a **Google Business Profile** for your shop. This is what wins
    "moniepoint near me" searches on Google Maps. Link it in `socialLinks`.
-3. Get real reviews from customers on that profile.
-4. Share page links on your WhatsApp status, Facebook groups, TikTok.
-5. Add a new helpful page every week or two (in `content/pages.mjs`) and
+6. Get real reviews from customers on that profile.
+7. Share page links on your WhatsApp status, Facebook groups, TikTok.
+8. Add a new helpful page every week or two (in `content/pages.mjs`) and
    add real towns you serve in `content/locations.mjs`.
 
 ## What's inside
