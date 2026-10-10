@@ -68,4 +68,6 @@ export default {
 
   // Optional: Google Search Console verification code (the content="..." value).
   googleVerification: "",
+  // Or the name of the HTML verification file Google gave you.
+  googleVerificationFile: "google467d55141288d62f.html",
 };

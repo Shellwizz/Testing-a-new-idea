@@ -431,6 +431,7 @@ ${allPages.filter((p) => p.isLocation).map((p) => `- [Moniepoint POS in ${p.stat
 - [Contact ${config.ownerName}](${url("contact")})
 `;
 await writeFile(join(out, "llms.txt"), llms);
+if (config.googleVerificationFile) await writeFile(join(out, config.googleVerificationFile), `google-site-verification: ${config.googleVerificationFile}`);
 if (config.indexNowKey) await writeFile(join(out, `${config.indexNowKey}.txt`), config.indexNowKey);
 
 
