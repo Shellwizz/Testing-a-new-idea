@@ -22,6 +22,7 @@ const fill = (s) =>
     .replaceAll("{state}", config.address.state)
     .replaceAll("{owner}", config.ownerName)
     .replaceAll("{role}", config.ownerRole);
+const addressLine = [config.address.street, config.address.city, config.address.state].filter(Boolean).map(esc).join(", ");
 const url = (slug) => `${config.siteUrl}/${slug ? slug + "/" : ""}`;
 const waLink = (text) => `https://wa.me/${config.whatsapp}?text=${encodeURIComponent(text)}`;
 
@@ -75,7 +76,7 @@ const contactBlock = () => `<div class="contact-card">
 <p><a class="btn btn-wa" href="${waLink("Hello, I want to get started with Moniepoint.")}" rel="nofollow">${icon.chat} Chat on WhatsApp</a>
 <a class="btn btn-ghost" href="tel:${esc(config.phone)}">${icon.phone} Call ${esc(config.phone)}</a></p>
 <p><strong>Email:</strong> <a href="mailto:${esc(config.email)}">${esc(config.email)}</a><br>
-<strong>Address:</strong> ${esc(config.address.street)}, ${esc(config.address.city)}, ${esc(config.address.state)}<br>
+${addressLine ? `<strong>Address:</strong> ${addressLine}<br>` : ""}
 <strong>Hours:</strong> ${esc(config.hours)}</p></div>`;
 
 const navItems = [
@@ -100,9 +101,9 @@ function schema(page) {
     founder: { "@type": "Person", name: config.ownerName, jobTitle: config.ownerRole },
     address: {
       "@type": "PostalAddress",
-      streetAddress: config.address.street,
-      addressLocality: config.address.city,
-      addressRegion: config.address.state,
+      ...(config.address.street ? { streetAddress: config.address.street } : {}),
+      ...(config.address.city ? { addressLocality: config.address.city } : {}),
+      ...(config.address.state ? { addressRegion: config.address.state } : {}),
       addressCountry: config.address.country,
     },
     areaServed: page.isLocation ? { "@type": "State", name: page.stateName } : { "@type": "Country", name: "Nigeria" },
@@ -183,7 +184,7 @@ const aboutBlock = `<section class="about">
   <div>
     <p class="about-role">Business Relationship Manager, Moniepoint</p>
     <h2>Hi, I’m ${esc(config.ownerName)}</h2>
-    <p>I work with Moniepoint as a Business Relationship Manager. My job is to get businesses set up properly and to be the person they call when they need something. I work with shop owners, POS agents and traders across ${esc(config.address.state)} and beyond.</p>
+    <p>I work with Moniepoint as a Business Relationship Manager. My job is to get businesses set up properly and to be the person they call when they need something. I work with shop owners, POS agents and traders across ${config.address.state ? `${esc(config.address.state)} and beyond` : "Nigeria"}.</p>
     <p>Call or WhatsApp me on <a href="tel:${esc(config.phone)}">${esc(config.phone)}</a>.</p>
   </div>
 </section>`;
@@ -286,7 +287,7 @@ ${hero}
 <footer class="foot">
   <div class="wrap">
     <div class="cols">
-      <div><a class="brand foot-brand" href="/">${logoMark}<span>${esc(config.businessName)}</span></a><p>${esc(config.address.street)}, ${esc(config.address.city)}, ${esc(config.address.state)}<br><a href="tel:${esc(config.phone)}">${esc(config.phone)}</a><br><a href="mailto:${esc(config.email)}">${esc(config.email)}</a><br>${esc(config.hours)}</p></div>
+      <div><a class="brand foot-brand" href="/">${logoMark}<span>${esc(config.businessName)}</span></a><p>${addressLine ? `${addressLine}<br>` : ""}<a href="tel:${esc(config.phone)}">${esc(config.phone)}</a><br><a href="mailto:${esc(config.email)}">${esc(config.email)}</a><br>${esc(config.hours)}</p></div>
       <div><h3>Guides</h3><ul>${footerTopics}</ul></div>
       <div><h3>Popular locations</h3><ul>${allPages
         .filter((p) => p.isLocation)

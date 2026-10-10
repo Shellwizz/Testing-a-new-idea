@@ -23,13 +23,13 @@ export default {
   phone: "+2349060349028",
   // WhatsApp number, digits only, with country code (no +).
   whatsapp: "2349060349028",
-  email: "hello@example.com",
+  email: "ibookshellwizz@gmail.com",
 
-  // Where you are based.
+  // Where you are based. Leave blank to hide; fill in to show it on the site.
   address: {
-    street: "12 Example Street",
-    city: "Ikeja",
-    state: "Lagos",
+    street: "",
+    city: "",
+    state: "",
     country: "NG",
   },
 
