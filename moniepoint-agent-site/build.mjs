@@ -1,6 +1,6 @@
 // Static site generator, no dependencies. Run:  node build.mjs
 // Output goes to ./dist (upload that folder to any static host).
-import { mkdir, writeFile, copyFile, rm } from "node:fs/promises";
+import { mkdir, writeFile, copyFile, rm, readdir } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import config from "./site.config.mjs";
@@ -142,6 +142,7 @@ function schema(page) {
     telephone: config.phone,
     email: config.email,
     url: config.siteUrl + "/",
+    ...(config.photo ? { image: `${config.siteUrl}/assets/${config.photo}` } : {}),
     knowsAbout: ["Moniepoint POS", "Moniepoint business account", "Moniepoint loans", "Moniebook", "POS business in Nigeria"],
     ...(config.socialLinks.length ? { sameAs: config.socialLinks } : {}),
   };
@@ -247,6 +248,11 @@ const aboutBlock = `<section class="about">
     <p>Call or WhatsApp me on <a href="tel:${esc(config.phone)}">${esc(config.phone)}</a>.</p>
   </div>
 </section>`;
+const galleryBlock = (config.gallery || []).length
+  ? `<section class="gallery"><h2>Out in the field</h2><div class="gallery-grid">${config.gallery
+      .map((g) => `<figure><img src="/assets/${esc(g.file)}" alt="${esc(g.caption)}" loading="lazy" width="760" height="840"><figcaption>${esc(g.caption)}</figcaption></figure>`)
+      .join("")}</div></section>`
+  : "";
 const reviewsBlock = (config.reviews || []).length
   ? `<section class="reviews"><h2>What my customers say</h2><div class="review-grid">${config.reviews
       .map((r) => `<figure class="review"><blockquote>“${esc(r.text)}”</blockquote><figcaption>${esc(r.name)}${r.place ? `, ${esc(r.place)}` : ""}</figcaption></figure>`)
@@ -290,7 +296,9 @@ function render(page) {
         <a class="btn btn-ghost" href="tel:${esc(config.phone)}">${icon.phone} Call ${esc(config.phone)}</a>
       </div>
     </div>
-    ${isHome ? `<div class="hero-art" aria-hidden="true">${terminalArt}</div>` : ""}
+    ${isHome ? (config.heroPhoto
+      ? `<figure class="hero-photo"><img src="/assets/${esc(config.heroPhoto)}" alt="${esc(config.ownerName)}, Business Relationship Manager at Moniepoint" width="760" height="895" fetchpriority="high"><figcaption><strong>${esc(config.ownerName)}</strong><span>Business Relationship Manager, Moniepoint</span></figcaption></figure>`
+      : `<div class="hero-art" aria-hidden="true">${terminalArt}</div>`) : ""}
   </div>
 </section>
 <div class="trust"><div class="wrap trust-grid">${trustItems.map(([t, d]) => `<div class="trust-item">${icon.check}<div><strong>${t}</strong><span>${d}</span></div></div>`).join("")}</div></div>`;
@@ -337,7 +345,7 @@ ${hero}
 <main class="wrap">
   <article class="content">
     ${quick ? `<div class="answer"><p class="answer-q">Quick answer: ${fill(quick.q)}</p><p>${fill(quick.a)}</p></div>` : ""}
-    ${isHome || page.slug === "contact" ? aboutBlock : ""}
+    ${isHome || page.slug === "contact" ? aboutBlock + galleryBlock : ""}
     ${body}
     ${reviewsBlock}
     ${page.slug === "404" ? "" : leadForm}
@@ -377,7 +385,7 @@ await rm(out, { recursive: true, force: true });
 await mkdir(join(out, "assets"), { recursive: true });
 await copyFile(join(root, "assets/style.css"), join(out, "assets/style.css"));
 await writeFile(join(out, "assets/favicon.svg"), logoSvg(64));
-if (config.photo) await copyFile(join(root, "assets", config.photo), join(out, "assets", config.photo));
+for (const f of await readdir(join(root, "assets"))) if (/\.(jpe?g|png|webp)$/i.test(f)) await copyFile(join(root, "assets", f), join(out, "assets", f));
 
 for (const page of allPages) {
   const dir = join(out, page.slug);
@@ -424,7 +432,7 @@ ${allPages.filter((p) => p.isLocation).map((p) => `- [Moniepoint POS in ${p.stat
 `;
 await writeFile(join(out, "llms.txt"), llms);
 if (config.indexNowKey) await writeFile(join(out, `${config.indexNowKey}.txt`), config.indexNowKey);
-await copyFile(join(root, "assets/og.png"), join(out, "assets/og.png"));
+
 
 console.log(`Built ${allPages.length} pages → ${out}`);
 if (config.siteUrl.includes("example.com")) console.warn("⚠  siteUrl is still example.com. Update site.config.mjs before deploying.");

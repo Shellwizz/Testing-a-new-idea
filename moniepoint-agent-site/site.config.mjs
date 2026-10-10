@@ -12,7 +12,14 @@ export default {
   ownerName: "Okonkwo Stanley",
   // Optional: a real photo of you makes the site far more trustworthy.
   // Put the file in the assets folder and write its name here, e.g. "me.jpg".
-  photo: "",
+  photo: "stanley-avatar.jpg",
+  // Large photo shown at the top of the home page.
+  heroPhoto: "stanley.jpg",
+  // Real photos from your work. Captions should describe what really happened.
+  gallery: [
+    { file: "stanley-prize.jpg", caption: "Presenting a ₦500,000 prize at a Moniepoint and Rooftop Empire event" },
+    { file: "stanley-speaking.jpg", caption: "Talking to business owners about growing with Moniepoint" },
+  ],
   ownerRole: "Moniepoint Business Relationship Manager (BRM)",
 
   // The live web address you will deploy to (no trailing slash).
